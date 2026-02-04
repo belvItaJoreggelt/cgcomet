@@ -4216,31 +4216,27 @@
 			<div id="uzenetiras" class="lilaHatter">
 				<div id="uzenetirasMezok">
 					<h2 style="text-align:left;"><span >Write a message</span></h2>
-					<form id="uzenetirasForm" onsubmit="event.preventDefault(); return false;">
+					<form id="uzenetirasForm">
+						<input type="hidden" name="access_key" value="2e0490e2-8ad4-415b-9377-9f63c57405da">
+						<input type="hidden" name="subject" value="CGCOMET – Üzenet az oldalról">
+						<input type="checkbox" name="botcheck" style="display:none">
 						<div class="input-wrapper">
 							<label for="nameMessage" class="floating-label">Full name</label>
-							<input type="text" id="nameMessage" class="newsletterEmailInput" placeholder="full name" required>
+							<input type="text" id="nameMessage" name="name" class="newsletterEmailInput" placeholder="full name" required>
 						</div>
 						<div class="input-wrapper">
 							<label for="emailMessage" class="floating-label">Contact</label>
-							<input type="email" id="emailMessage" class="newsletterEmailInput" placeholder="email and phone" required>
+							<input type="email" id="emailMessage" name="email" class="newsletterEmailInput" placeholder="e-mail and phone" required>
 						</div>
 						<div class="input-wrapper">
 							<label for="messageText" class="floating-label">Message</label>
-							<input type="text" id="messageText" class="newsletterEmailInput" placeholder="please write your message here" required>
+							<input type="text" id="messageText" name="message" class="newsletterEmailInput" placeholder="please write your message here" required>
 						</div>
-						<button type="submit" class="newsletterSubscribeButton">send</button>
+						<button type="submit" id="uzenetirasKuldes" class="newsletterSubscribeButton">send</button>
+						<div id="uzenetirasUzenet" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
 					</form>
 				</div>
-				<div>
-					<p>
-						✉️ Email: <span class="conti"><a href="mailto:officalcgcomet@gmail.com">officalcgcomet@gmail.com</a></span>
-					</p>
-					<p>
-						📱 Phone: <span class="conti"><a href="tel:+36302172003">+36 30 2172 003</a></span>
-					</p>
-				</div>
-			</div>
+			
 			
 			<div id="tamogatasWrapper">
 				<div id="tamogatas" class="lilaHatter">
