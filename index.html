@@ -114,23 +114,26 @@
 			opacity: 1;
 			pointer-events: auto;
 		}
+		
 
 		.sideMenupont{
-				padding: 5px;
-				border-radius: 10px;
-				background:
-					radial-gradient(circle at top right,
+			width: fit-content;
+			padding: 10px 40px 10px 20px;
+			text-align: left;
+			border-radius: 10px;
+			background:
+			radial-gradient(circle at top right,
 					  rgba(184, 76, 255, 0.35),
 					  rgba(184, 76, 255, 0.15) 40%,
 					  rgba(0, 0, 0, 0.85) 75%);
 
-				backdrop-filter: blur(18px);
-				-webkit-backdrop-filter: blur(18px);
+			backdrop-filter: blur(18px);
+			-webkit-backdrop-filter: blur(18px);
 
-				border-left: 2px solid rgba(184, 76, 255, 0.35);
-				box-shadow:
-					-20px 0 40px rgba(184, 76, 255, 0.25),
-					inset 0 0 30px rgba(184, 76, 255, 0.15);
+			border-left: 2px solid rgba(184, 76, 255, 0.35);
+			box-shadow:
+				-20px 0 40px rgba(184, 76, 255, 0.25),
+				inset 0 0 30px rgba(184, 76, 255, 0.15);
 		}
 		
 		#bttn_sideMenu {
@@ -211,19 +214,7 @@
 			transform: translateY(-50%) rotate(-45deg);
 		}
 
-		#sideMenu {
-			transition: opacity 0.3s ease, transform 0.3s ease;
-			transform: translateX(100%);
-			opacity: 0;
-			pointer-events: none;
-		}
-
-		#sideMenu.show {
-			display: flex;
-			transform: translateX(0);
-			opacity: 1;
-			pointer-events: auto;
-		}
+		
 		
 		
 		#logo{
@@ -1474,7 +1465,714 @@
 		}
 		
 		
+		@media screen and (max-height: 819px) and (max-width: 1023px){
+			.toltesek {
+				height: 75px;
+			}
+			.toltesek img{
+				height: 75px;
+			}
+		
+			h1{
+				font-size: 1.7rem;
+			}
+			h2{
+				font-size: 0.95rem;
+			}
+			#fomenu{
+				height: 75px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 5px;
+			}
+			#logo img{
+				height: 75px;
+			}
+		
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				display: flex;
+				height: calc(100vh - 77px);
+				top: 77px;
+				width: 80vw;
+			}
+			
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 30px;
+			}
+			
+			.sideMenupont{
+				font-size: 0.7rem;
+			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 0.7rem;
+			}
+			
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 92%;
+				width: 82vw;
+				font-size: 0.9rem;
+				padding: 0px 0px;
+			}
+			
+			.felvonas{
+				width: 90vw;
+			}
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 135px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 12%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.6rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.55rem;
+			}
+
+			.haromD_Feliratok{
+				font-size: 1.9rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.5rem;
+				padding: 20px;
+				gap: 37px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				gap: 12px;
+				width: 92%;
+			}
+		
+			.haromD_Tetel img{
+				height: 100px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.30rem;
+			}
+			
+			.masodikFelvonas{
+				height: 95%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 40px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 90%;
+				gap: 10px;
+				font-size: 0.6rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 80px;
+			}
+
+			.workshopUjAr{
+				font-size: 0.8rem;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.35rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 20px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 0.75rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.4rem;
+			}
+			.foglalasForm{
+				padding: 1%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.3rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-bottom: 10px;
+				font-size: 0.4rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 15px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.5rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 24%;
+				width: 90vw;
+				font-size: 0.5rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				width: 90vw;
+				padding: 10% 4% 8% 4%;
+				gap: 30px;
+				font-size: 0.4rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 1.4rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 5px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 162px;
+				max-width: 45%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.55rem;
+			}
+			.parameterek_Adat{
+				margin-top: 2px;
+				padding: 20px 50px;			
+			}
+			.tanarok > div:first-child {	
+				height: 180px;
+			}
+
+			#tMate > div:first-child {
+				height: 180px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 100%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.5rem;
+			}
+			#newsLetter{
+				height: 175px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.3rem;
+				padding: 8px 0;
+				min-width: 180px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.2rem;
+				font-weight: bold;
+				padding: 12px 30px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.4rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 350px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 375px;
+				width: 370px;
+			}
+			#tamogatas{
+				width: 370px;
+			}
+
+			#tamogatasKuldese{
+				width: 370px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				top: 7px;
+				left: 7px;
+				width: 50px;
+				height: 50px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 130px;
+				height: 130px;
+			}
+			#hD_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 50px;
+			}
+			#fest_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 50px;
+			}
+			.tanarNyil{
+				top: 7px;
+				left: 7px;
+				width: 52px;
+			}
+
+		}
+		
+		
+		@media screen and (min-height: 820px) and (max-width: 1023px){
+			.toltesek {
+				height: 80px;
+			}
+			.toltesek img{
+				height: 80px;
+			}
+		
+			h1{
+				font-size: 1.8rem;
+			}
+			h2{
+				font-size: 1.05rem;
+			}
+			#fomenu{
+				height: 77px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 10px;
+			}
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				display: flex;
+				height: calc(100vh - 77px);
+				top: 77px;
+				width: 80vw;
+			}
+			
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 70px;
+			}
+			
+			.sideMenupont{
+				font-size: 0.8rem;
+			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 0.8rem;
+			}
+			
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 92%;
+				width: 82vw;
+				font-size: 1.0rem;
+				padding: 0px 0px;
+			}
+			
+			.felvonas{
+				width: 90vw;
+			}
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 135px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 12%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.7rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.65rem;
+			}
+
+			.haromD_Feliratok{
+				font-size: 2.0rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.6rem;
+				padding: 20px;
+				gap: 37px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				gap: 12px;
+				width: 92%;
+			}
+		
+			.haromD_Tetel img{
+				height: 100px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.40rem;
+			}
+			
+			.masodikFelvonas{
+				height: 95%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 40px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 90%;
+				gap: 10px;
+				font-size: 0.7rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 80px;
+			}
+
+			.workshopUjAr{
+				font-size: 0.9rem;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.45rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 20px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 0.85rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.5rem;
+			}
+			.foglalasForm{
+				padding: 1%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.4rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-bottom: 10px;
+				font-size: 0.5rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 15px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.6rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 24%;
+				width: 90vw;
+				font-size: 0.6rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				width: 90vw;
+				padding: 10% 4% 8% 4%;
+				gap: 30px;
+				font-size: 0.5rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 1.5rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 5px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 162px;
+				max-width: 45%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.65rem;
+			}
+			.parameterek_Adat{
+				margin-top: 2px;
+				padding: 20px 50px;			
+			}
+			.tanarok > div:first-child {	
+				height: 180px;
+			}
+
+			#tMate > div:first-child {
+				height: 180px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 100%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.6rem;
+			}
+			#newsLetter{
+				height: 175px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.4rem;
+				padding: 8px 0;
+				min-width: 180px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.3rem;
+				font-weight: bold;
+				padding: 12px 30px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.5rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 350px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 375px;
+				width: 370px;
+			}
+			#tamogatas{
+				width: 370px;
+			}
+
+			#tamogatasKuldese{
+				width: 370px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				top: 7px;
+				left: 7px;
+				width: 50px;
+				height: 50px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 130px;
+				height: 130px;
+			}
+			#hD_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 50px;
+			}
+			#fest_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 50px;
+			}
+			.tanarNyil{
+				top: 7px;
+				left: 7px;
+				width: 52px;
+			}
+
+		}
+		
 		@media screen and (min-height: 950px) and (max-width: 1023px){
+			.toltesek {
+				height: 90px;
+			}
+			.toltesek img{
+				height: 90px;
+			}
 			h1{
 				font-size: 2.4rem;
 			}
@@ -1538,7 +2236,6 @@
 				width: 75vw;
 				font-size: 1.2rem;
 				padding: 0px 0px;
-				
 			}
 			
 			.szoveg{
@@ -1561,7 +2258,7 @@
 				left: 50%;
 				transform: translateX(-50%);
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.8rem;
 			}
 
 			#future_edication{
@@ -1617,6 +2314,7 @@
 				display: flex;
 				flex-direction: column;
 				gap: 40px;	
+				align-items: center;
 			}
 			
 			.workshopTetel{
@@ -1624,6 +2322,7 @@
 				gap: 22px;
 				font-size: 0.9rem;
 				align-items: center;
+				justify-content: center;
 			}
 			#workshops_bemutatas .workshopTetel img{
 				height: 80px;
@@ -1867,7 +2566,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -2104,7 +2803,7 @@
 
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 
 			#future_edication{
@@ -2341,7 +3040,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -2578,7 +3277,7 @@
 
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 
 			#future_edication{
@@ -2815,7 +3514,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -3049,7 +3748,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.9em;
+				font-size: 0.9rem;
 			}
 			
 			#future_edication{
@@ -3284,7 +3983,7 @@
 			
 			.reszletek{
 				padding: 12px 24px;
-				font-size: 1.1em;
+				font-size: 1.1rem;
 			}
 			
 			.haromD_Feliratok{
@@ -4653,7 +5352,7 @@
 					</div> 
 				</div>
 				<div class="szoveg"> 
-					<span class="hatteresSzoveg2"><h1>Oktatási módszerünk</h1></span>
+					<span><h1>Oktatási módszerünk</h1></span>
 					
 					<br><span class="hatteresSzoveg">A tanulás egy utazás, mi pedig azért vagyunk itt, hogy izgalmassá tegyük azt. Könnyen követhető, gyakorlatias oktatást kínálunk a 3D gyártás, az animáció és a tervezés területén. Legyen szó iskolai, online vagy személyes oktatásról, segítünk képességeid és szenvedélyed fejlesztésében egy professzionális, támogató környezetben.</span>
 				</div>
@@ -4896,8 +5595,8 @@
 							Formátum
 						</div>
 						<div class="parameterek_Adat">
-							Online (Discord)
-							<br>Személyes (Budapest)
+							<span style="white-space: nowrap;">Online (Discord)</span>
+							<br><span style="white-space: nowrap;">Személyes (Budapest)</span>
 						</div>
 					</div>
 					<div class="egy_tanarParameter">
@@ -4913,8 +5612,8 @@
 							Ár
 						</div>
 						<div class="parameterek_Adat">
-							6000 Ft - online 
-							<br>7500 Ft - személyesen 
+							<span style="white-space: nowrap;">6000 Ft - online </span>
+							<br><span style="white-space: nowrap;">7500 Ft - személyesen </span>
 						</div>
 					</div>
 				</div>
@@ -4965,8 +5664,8 @@
 								Formátum
 							</div>
 							<div class="parameterek_Adat">
-								Online
-								<br>Személyes (Budapest)
+								<span style="white-space: nowrap;">Online (Discord) </span>
+								<br><span style="white-space: nowrap;">Személyes (Budapest)	</span>
 							</div>
 						</div>
 						<div class="egy_tanarParameter">
@@ -4982,8 +5681,8 @@
 								Ár
 							</div>
 							<div class="parameterek_Adat">
-								4500 Ft - online 
-								<br>6000 Ft - személyesen 
+								<span style="white-space: nowrap;">4500 Ft - online 	</span>
+								<br><span style="white-space: nowrap;">6000 Ft - személyesen 	</span>
 							</div>
 						</div>
 					</div>
@@ -5056,12 +5755,11 @@
 					</p>
 					
 					<p>
-						<h2>Közeljövőben induló projektjeink:</h2>
-						<br>🎲 saját társasjátékok kiadását
-						<br>🧑‍💻 juniorok felvételét és mentorálását
-						<br>🖨️ 3D nyomtatott termékek és figurák fejlesztését
-						<br>🎮 játékok és vizuális tartalmak készítését
-						<br>🎓 oktatási programok indítását
+						<br>🎲 saját társasjátékok kiadása
+						<br>🧑‍💻 juniorok felvétele és mentorálása
+						<br>🖨️ 3D nyomtatott termékek és figurák fejlesztése
+						<br>🎮 játékok és vizuális tartalmak készítése
+						<br>🎓 oktatási programok indítása
 					</p>
 					
 					<p>
