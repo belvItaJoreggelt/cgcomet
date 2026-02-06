@@ -88,8 +88,132 @@
 			background: rgba(0, 0, 0, 0.2);
 			backdrop-filter: blur(10px);
 			-webkit-backdrop-filter: blur(10px);
-			border: 2px solid rgba(184, 76, 255, 0.25);
+			border-bottom: 2px solid rgba(184, 76, 255, 0.25);
 		}
+		
+		#sideMenu{
+			display: none;
+			flex-direction: column;
+			height: calc(100vh - 85px);
+			top: 85px;
+			right: 0;
+			width: 45vw;
+			padding: 5% 15% 5% 3%;
+			background: black;
+			z-index: 110;
+			gap: 20px;
+			position: fixed;
+			transition: opacity 0.3s ease, transform 0.3s ease;
+			transform: translateX(100%);
+			opacity: 0;
+			pointer-events: none;
+		}
+		#sideMenu.show {
+			display: flex;
+			transform: translateX(0);
+			opacity: 1;
+			pointer-events: auto;
+		}
+		
+
+		.sideMenupont{
+			width: fit-content;
+			padding: 10px 40px 10px 20px;
+			text-align: left;
+			border-radius: 10px;
+			background:
+			radial-gradient(circle at top right,
+					  rgba(184, 76, 255, 0.35),
+					  rgba(184, 76, 255, 0.15) 40%,
+					  rgba(0, 0, 0, 0.85) 75%);
+
+			backdrop-filter: blur(18px);
+			-webkit-backdrop-filter: blur(18px);
+
+			border-left: 2px solid rgba(184, 76, 255, 0.35);
+			
+		}
+		
+		#bttn_sideMenu {
+			display: none; /* Hidden by default on larger screens */
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			padding: 0;
+			min-width: auto;
+			position: absolute;
+			right: 40px;
+		}
+
+		.hamburgerIcon {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 30px;
+			height: 20px;
+			position: relative;
+		}
+
+		.hamburgerIcon .line {
+			display: block;
+			height: 3px;
+			width: 100%;
+			background-color: white;
+			border-radius: 2px;
+			transition: all 0.3s ease;
+			position: absolute;
+		}
+
+		.hamburgerIcon .line.top {
+			top: 0;
+		}
+
+		.hamburgerIcon .line.mid {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.hamburgerIcon .line.bot {
+			bottom: 0;
+		}
+
+		/* Hamburger to Minus state */
+		#bttn_sideMenu.state-minus .hamburgerIcon .line.top {
+			opacity: 0;
+			transform: translateY(0);
+		}
+
+		#bttn_sideMenu.state-minus .hamburgerIcon .line.mid {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		#bttn_sideMenu.state-minus .hamburgerIcon .line.bot {
+			opacity: 0;
+			transform: translateY(0);
+		}
+
+		/* Minus to X state */
+		#bttn_sideMenu.state-x .hamburgerIcon .line.top {
+			opacity: 1;
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
+		}
+
+		#bttn_sideMenu.state-x .hamburgerIcon .line.mid {
+			opacity: 0;
+		}
+
+		#bttn_sideMenu.state-x .hamburgerIcon .line.bot {
+			opacity: 1;
+			bottom: auto;
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+		}
+
+		
+		
 		
 		#logo{
 			display: flex;
@@ -155,6 +279,7 @@
 			background-repeat: no-repeatbackground: black;
 			position: relative;
 			overflow: hidden;	*/
+			
 		}
 		
 		#rolunk_hatter video{
@@ -512,7 +637,7 @@
 			font-size: 3rem;
 			font-family: Bell MT;
 			letter-spacing: 0.04em;
-			
+			/*white-space: nowrap;*/
 		}
 		
 		/*	Nyilak	*/
@@ -931,7 +1056,7 @@
 			top: -20px;
 			right: -40px;
 		}
-
+		
 		.workshopUjAr{
 			color: white;
 			font-size: 1.5rem;
@@ -1050,6 +1175,7 @@
 		.newsletterEmailInput{
 			background: transparent;
 			border: none;
+			border-top: none;
 			border-bottom: 1px solid white;
 			color: white;
 			font-size: 1.0rem;
@@ -1229,6 +1355,7 @@
 		.newsletterForm{
 			display: flex;
 			flex-direction: row;
+			justify-content: center;
 			gap: 20px;
 		}
 		
@@ -1336,6 +1463,1487 @@
 			display: block;
 		}
 		
+		@media screen and (max-height: 641px) and (max-width: 1023px){
+			.toltesek {
+				height: 70px;
+			}
+			.toltesek img{
+				height: 70px;
+			}
+		
+			h1{
+				font-size: 1.4rem;
+			}
+			h2{
+				font-size: 0.70rem;
+			}
+			#fomenu{
+				height: 70px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 5px;
+			}
+			#logo img{
+				height: 70px;
+			}
+		
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				display: flex;
+				height: calc(100vh - 77px);
+				top: 77px;
+				width: 80vw;
+				gap: 10px;
+			}
+			
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 30px;
+				width: 30px;
+				height: 30px;
+			}
+			#bttn_sideMenu .hamburgerIcon {
+				width: 22px;
+				height: 15px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon .line {
+				height: 2px;
+			}
+			.sideMenupont{
+				font-size: 0.6rem;
+				padding: 8px 40px 8px 20px;
+			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 0.7rem;
+			}
+			
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 92%;
+				width: 82vw;
+				font-size: 0.75rem;
+				padding: 0px 0px;
+			}
+			
+			.felvonas{
+				width: 90vw;
+			}
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 120px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 5%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.6rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.50rem;
+			}
+
+			.haromD_Feliratok{
+				font-size: 1.5rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.5rem;
+				padding: 20px;
+				gap: 30px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 5px;
+				width: 92%;
+			}
+		
+			.haromD_Tetel img{
+				height: 75px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.55em;
+			}
+			
+			.masodikFelvonas{
+				height: 95%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 10px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 95%;
+				gap: 7px;
+				font-size: 0.6rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 60px;
+			}
+			
+			.workshopRegiAr{
+				font-size: 0.65rem;
+			}
+			.workshopUjAr{
+				font-size: 0.8rem;
+			}
+			.workshopKedvezmeny{
+				top: -7px;
+				right: -40px;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.45rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 8px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 0.75rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.55rem;
+			}
+			.foglalasForm{
+				padding: 4%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.45rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-top: -5px;
+				font-size: 0.55rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 12px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 55% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.60rem;
+				gap: 7px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			#tMate .reszletek{
+				bottom: 1%;
+			}
+			
+			.arrowLeft {
+				left: 10px;
+				width: 20px;
+				height: 24px;
+			}
+			.arrowRight {
+				right: 10px;
+				width: 20px;
+				height: 24px;
+			}
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 55% 30%;
+				width: 90vw;
+				font-size: 0.60rem;
+				gap: 7px;
+				align-items: flex-start;
+			}
+			.tanarok .reszletek{
+				bottom: 1%;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				width: 90vw;
+				padding: 10% 4% 8% 4%;
+				gap: 20px;
+				font-size: 0.5rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 1.4rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 5px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 145px;
+				max-width: 40%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.55rem;
+			}
+			.parameterek_Adat{
+				margin-top: 0px;
+				padding: 20px 30px;			
+			}
+			.tanarok > div:first-child {	
+				height: 120px;
+			}
+
+			#tMate > div:first-child {
+				height: 120px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 100%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.6rem;
+			}
+			#newsLetter{
+				height: 175px;
+				width: 310px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.5rem;
+				padding: 5px 0;
+				min-width: 120px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.45rem;
+				font-weight: bold;
+				padding: 10px 25px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.4rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 350px;
+				width: 310px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 415px;
+				width: 310px;
+			}
+			#tamogatas{
+				width: 310px;
+			}
+
+			#tamogatasKuldese{
+				width: 310px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				top: 3px;
+				left: 3px;
+				width: 50px;
+				height: 50px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 130px;
+				height: 130px;
+			}
+			#hD_fog_nyil{
+				top: 3px;
+				left: 3px;
+				width: 40px;
+			}
+			#fest_fog_nyil{
+				top: 3px;
+				left: 3px;
+				width: 40px;
+			}
+			.tanarNyil{
+				top: 4px;
+				left: 4px;
+				width: 40px;
+			}
+
+		}
+		@media screen and (min-height: 642px) and (max-width: 1023px){
+			.toltesek {
+				height: 75px;
+			}
+			.toltesek img{
+				height: 75px;
+			}
+		
+			h1{
+				font-size: 1.6rem;
+			}
+			h2{
+				font-size: 0.85rem;
+			}
+			#fomenu{
+				height: 75px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 5px;
+			}
+			#logo img{
+				height: 75px;
+			}
+		
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				display: flex;
+				height: calc(100vh - 77px);
+				top: 77px;
+				width: 80vw;
+			}
+			
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 30px;
+				width: 30px;
+				height: 30px;
+			}
+			#bttn_sideMenu .hamburgerIcon {
+				width: 22px;
+				height: 15px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon .line {
+				height: 2px;
+			}
+			
+			.sideMenupont{
+				font-size: 0.7rem;
+			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 0.7rem;
+			}
+			
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 92%;
+				width: 82vw;
+				font-size: 0.9rem;
+				padding: 0px 0px;
+			}
+			
+			.felvonas{
+				width: 90vw;
+			}
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 120px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 12%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.6rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.55rem;
+			}
+
+			.haromD_Feliratok{
+				font-size: 1.9rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.5rem;
+				padding: 20px;
+				gap: 30px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 7px;
+				width: 92%;
+			}
+		
+			.haromD_Tetel img{
+				height: 90px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.55em;
+			}
+			
+			.masodikFelvonas{
+				height: 95%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 15px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 95%;
+				gap: 10px;
+				font-size: 0.6rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 80px;
+			}
+			
+			.workshopRegiAr{
+				font-size: 0.65rem;
+			}
+			.workshopUjAr{
+				font-size: 0.8rem;
+			}
+			.workshopKedvezmeny{
+				top: -10px;
+				right: -40px;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.45rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 20px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 0.75rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.55rem;
+			}
+			.foglalasForm{
+				padding: 4%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.45rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-bottom: 10px;
+				font-size: 0.55rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 12px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 45% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.65rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			.arrowLeft {
+				left: 10px;
+				width: 20px;
+				height: 24px;
+			}
+			.arrowRight {
+				right: 10px;
+				width: 20px;
+				height: 24px;
+			}
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 45% 30%;
+				width: 90vw;
+				font-size: 0.65rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				width: 90vw;
+				padding: 10% 4% 8% 4%;
+				gap: 20px;
+				font-size: 0.5rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 1.4rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 5px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 145px;
+				max-width: 40%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.55rem;
+			}
+			.parameterek_Adat{
+				margin-top: 2px;
+				padding: 20px 30px;			
+			}
+			.tanarok > div:first-child {	
+				height: 150px;
+			}
+
+			#tMate > div:first-child {
+				height: 150px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 100%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.6rem;
+			}
+			#newsLetter{
+				height: 175px;
+				width: 310px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.5rem;
+				padding: 5px 0;
+				min-width: 120px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.45rem;
+				font-weight: bold;
+				padding: 10px 25px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.4rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 350px;
+				width: 310px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 415px;
+				width: 310px;
+			}
+			#tamogatas{
+				width: 310px;
+			}
+
+			#tamogatasKuldese{
+				width: 310px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				top: 3px;
+				left: 3px;
+				width: 50px;
+				height: 50px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 130px;
+				height: 130px;
+			}
+			#hD_fog_nyil{
+				top: 3px;
+				left: 3px;
+				width: 40px;
+			}
+			#fest_fog_nyil{
+				top: 3px;
+				left: 3px;
+				width: 40px;
+			}
+			.tanarNyil{
+				top: 4px;
+				left: 4px;
+				width: 40px;
+			}
+
+		}
+		
+		
+		@media screen and (min-height: 820px) and (max-width: 1023px){
+			.toltesek {
+				height: 80px;
+			}
+			.toltesek img{
+				height: 80px;
+			}
+		
+			h1{
+				font-size: 1.8rem;
+			}
+			h2{
+				font-size: 1.05rem;
+			}
+			#fomenu{
+				height: 77px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 10px;
+			}
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				display: flex;
+				height: calc(100vh - 77px);
+				top: 77px;
+				width: 80vw;
+			}
+			
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 40px;
+				width: 40px;
+				height: 40px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon {
+				width: 30px;
+				height: 20px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon .line {
+				height: 3px;
+			}
+
+			.sideMenupont{
+				font-size: 0.8rem;
+			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 0.8rem;
+			}
+			
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 92%;
+				width: 82vw;
+				font-size: 1.0rem;
+				padding: 0px 0px;
+			}
+			
+			.felvonas{
+				width: 90vw;
+			}
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 135px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 12%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.7rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.65rem;
+			}
+
+			.haromD_Feliratok{
+				font-size: 2.0rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.6rem;
+				padding: 20px;
+				gap: 37px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				gap: 12px;
+				width: 92%;
+			}
+		
+			.haromD_Tetel img{
+				height: 100px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.55rem;
+			}
+			
+			.masodikFelvonas{
+				height: 95%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 40px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 90%;
+				gap: 10px;
+				font-size: 0.7rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 80px;
+			}
+			.workshopRegiAr{
+				font-size: 0.75rem;
+			}
+			.workshopUjAr{
+				font-size: 0.9rem;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.65rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 20px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 0.95rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.9rem;
+			}
+			.foglalasForm{
+				padding: 4%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.55rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-bottom: 10px;
+				font-size: 0.7rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 15px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.6rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 24%;
+				width: 90vw;
+				font-size: 0.6rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				width: 90vw;
+				padding: 10% 4% 8% 4%;
+				gap: 30px;
+				font-size: 0.5rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 1.5rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 5px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 162px;
+				max-width: 45%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.65rem;
+			}
+			.parameterek_Adat{
+				margin-top: 2px;
+				padding: 20px 40px;			
+			}
+			.tanarok > div:first-child {	
+				height: 180px;
+			}
+
+			#tMate > div:first-child {
+				height: 180px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 100%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.8rem;
+			}
+			#newsLetter{
+				height: 175px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.6rem;
+				padding: 8px 4px;
+				min-width: 100px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.5rem;
+				font-weight: bold;
+				padding: 12px 30px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.7rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 390px;
+				width: 370px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 470px;
+				width: 370px;
+			}
+			#tamogatas{
+				width: 370px;
+			}
+
+			#tamogatasKuldese{
+				width: 370px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				top: 7px;
+				left: 7px;
+				width: 50px;
+				height: 50px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 130px;
+				height: 130px;
+			}
+			#hD_fog_nyil{
+				top: 2px;
+				left: 2px;
+				width: 40px;
+			}
+			#fest_fog_nyil{
+				top: 2px;
+				left: 2px;
+				width: 40px;
+			}
+			.tanarNyil{
+				top: 4px;
+				left: 4px;
+				width: 38px;
+			}
+
+		}
+		
+		@media screen and (min-height: 950px) and (max-width: 1023px){
+			.toltesek {
+				height: 90px;
+			}
+			.toltesek img{
+				height: 90px;
+			}
+			h1{
+				font-size: 2.4rem;
+			}
+			h2{
+				font-size: 1.25rem;
+			}
+			#fomenu{
+				height: 85px;
+				padding: 0 20px;
+			}
+			#logo{
+				position: absolute;
+				left: 40px;
+			}
+			#menupontok{
+				gap: 25px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			
+			.menupont{
+				display: none;
+			}
+			#nyelvCsere{
+				display: none;
+			}
+			
+			#sideMenu{
+				
+				display: flex;
+				
+				
+			}
+			#bttn_sideMenu {
+				display: flex !important;
+				right: 70px;
+				width: 40px;
+				height: 40px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon {
+				width: 30px;
+				height: 20px;
+			}
+
+			#bttn_sideMenu .hamburgerIcon .line {
+				height: 3px;
+			}
+			
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
+			#rolunk {
+				width: 75%;
+				padding: 20px;
+				text-align: center;
+			}
+			#rolunk{
+				font-size: 1.0rem;
+			}
+
+			.tartalom {
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 80%;
+				width: 75vw;
+				font-size: 1.2rem;
+				padding: 0px 0px;
+			}
+			
+			.szoveg{
+				padding-top: 2%;
+				width: 90%; 
+			}
+		
+			.diszites img{
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+				height: 155px;
+				width: auto;
+			}
+
+			.reszletek{
+				position: absolute;
+				bottom: 12%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10px 20px;
+				font-size: 0.8rem;
+			}
+
+			#future_edication{
+				height: 80%;
+				width: 80vw;
+				padding: 5px 50px 10px 50px;
+				font-size: 0.85rem;
+			}
+
+			#future_edication_nyil{
+				width: 80px;
+				height: 80px;
+			}
+			
+			.haromD_Feliratok{
+				font-size: 2.2rem;
+			}
+
+			#haromDszolgaltatasok{
+				height: auto;
+				width: 80vw;
+				font-size: 0.8rem;
+				padding: 20px;
+				gap: 40px;
+			}
+			
+			.haromD_Tetel{
+				padding: 0 5px 5px 5px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+				gap: 30px;
+				width: 90%;
+			}
+		
+			.haromD_Tetel img{
+				height: 120px;
+				width: auto;
+			}
+
+			.privatApplyButton{
+				padding: 11px 19px;
+				font-size: 0.55rem;
+			}
+			
+			.masodikFelvonas{
+				height: 92%;
+				z-index: 11;
+			}
+		
+			#workshops_bemutatas{
+				display: flex;
+				flex-direction: column;
+				gap: 40px;	
+				align-items: center;
+			}
+			
+			.workshopTetel{
+				width: 90%;
+				gap: 22px;
+				font-size: 0.9rem;
+				align-items: center;
+				justify-content: center;
+			}
+			#workshops_bemutatas .workshopTetel img{
+				height: 80px;
+			}
+			
+			.workshopRegiAr{
+				font-size: 0.95rem;
+			}
+			.workshopUjAr{
+				font-size: 1.1rem;
+			}
+			.workshopApplyButton{
+				padding: 8px 25px;
+				font-size: 0.65rem;
+			}
+			#hD_foglalas,#festo_foglalas{
+				gap: 20px;
+				padding: 30px;
+				justify-content: center;
+			}
+
+			.nNagyobb{
+				font-size: 1.25rem;
+			}
+
+			.fMenete{
+				margin-top: 10px;
+				font-size: 0.9rem;
+			}
+			.foglalasForm{
+				padding: 1%;
+			}
+			.foglalasForm select {
+				padding: 7px 15px;
+				margin-bottom: 20px;
+				font-size: 0.8rem;
+			}
+			.felvonas ul {
+				margin-left: 5%;
+				margin-top: -10px;
+				font-size: 0.9rem;
+			}
+			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
+				margin-bottom: 15px;
+			}
+			
+			#tMate{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 30%;
+				width: 90vw;
+				padding: 5% 8%;
+				font-size: 0.8rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			#tMateImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarok{
+				grid-template-columns: 100%;
+				grid-template-rows: 40% 30%;
+				width: 90vw;
+				font-size: 0.8rem;
+				gap: 10px;
+				align-items: flex-start;
+			}
+			
+			#sNoemiImageDiv{
+				grid-row: 2;
+			}
+			
+			.tanarReszletek{
+				
+				width: 90vw;
+				padding: 8% 4%;
+				gap: 50px;
+				font-size: 0.7rem;
+			}
+			
+			.tanarNevFelirat{
+				font-size: 2.5rem;
+			}
+			.tanarParameterek{
+				flex-wrap: wrap;
+				height: 90%;
+				gap: 12px;
+				
+			}
+			.egy_tanarParameter{
+				height: 40%;
+				/*
+				flex: 1;
+				min-width: 215px;*/
+				flex: 1 1 45%;
+				min-width: 185px;
+				max-width: 45%;
+			}
+			.parameterek_Nev{
+				padding: 5%;
+				font-size: 0.85rem;
+			}
+			.parameterek_Adat{
+				margin-top: 2px;
+				padding: 20px 50px;			
+			}
+			.tanarok > div:first-child {	
+				height: 250px;
+			}
+
+			#tMate > div:first-child {
+				height: 250px;
+			}
+			
+			#kapcsolat_szurke{
+				width: 95%;
+			}
+			.lilaHatter{
+			
+				padding: 3vh 4vw;
+				font-size: 0.9rem;
+			}
+			#newsLetter{
+				height: 185px;
+				width: 500px;
+				padding: 3vh 4vw;
+				gap: 10px;
+			}
+			.newsletterEmailInput{
+				font-size: 0.7rem;
+				padding: 8px 0;
+				min-width: 300px;
+			}
+			.newsletterSubscribeButton{
+				font-size: 0.7rem;
+				font-weight: bold;
+				padding: 12px 30px;
+			}
+			.floating-label{
+				color: white;
+				font-size: 0.7rem;
+				margin-bottom: 5px;
+			}
+			#uzenetiras{
+				height: 410px;
+				width: 500px;
+				padding: 3vh 4vw;
+				gap: 40px;
+			}
+			#tamogatasWrapper{
+				height: 525px;
+				width: 500px;
+			}
+			#tamogatas{
+				width: 500px;
+			}
+
+			#tamogatasKuldese{
+				width: 500px;
+			}
+			
+			/*Nyilak*/
+			#future_edication_nyil{
+				width: 70px;
+				height: 70px;
+			}
+			#workshops_nyil{
+				top: 5px;
+				left: 5px;
+				width: 135px;
+				height: 135px;
+			}
+			#hD_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 60px;
+			}
+			#fest_fog_nyil{
+				top: 5px;
+				left: 5px;
+				width: 60px;
+			}
+			.tanarNyil{
+				top: 10px;
+				left: 10px;
+				width: 62px;
+			}
+
+		}
+		
 		
 		@media screen and (min-height: 600px) and (min-width: 1024px){
 			h1{
@@ -1392,7 +3000,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -1431,6 +3039,9 @@
 				font-size: 0.9rem;		/* 1.3rem */
 			}
 			
+			.workshopRegiAr{
+				font-size: 1.05rem;
+			}
 			.workshopUjAr{
 				font-size: 1.2rem;/*1.5rem*/
 			}
@@ -1439,7 +3050,7 @@
 				font-size: 0.65rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 12px;
+				gap: 11px;
 				padding: 5px 115px;
 			}
 			
@@ -1452,7 +3063,7 @@
 				font-size: 0.6rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 1% 1% 0% 1%;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
@@ -1524,9 +3135,10 @@
 				min-width: 300px;
 			}
 			.newsletterSubscribeButton{
-				font-size: 0.5rem;
+				font-size: 0.6rem;
 				font-weight: bold;
 				padding: 12px 30px;
+				
 			}
 			.floating-label{
 				color: white;
@@ -1534,7 +3146,7 @@
 				margin-bottom: 5px;
 			}
 			#uzenetiras{
-				height: 355px;
+				height: 400px;
 				width: 700px;
 				padding: 3vh 4vw;
 				gap: 40px;
@@ -1610,7 +3222,7 @@
 				width: 65px;
 				padding: 3px 8px;
 			}
-
+			
 			#rolunk{
 				font-size: 1.0rem;
 			}
@@ -1629,7 +3241,7 @@
 
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 
 			#future_edication{
@@ -1668,7 +3280,10 @@
 				gap: 22px;
 				font-size: 0.9rem;
 			}
-
+			
+			.workshopRegiAr{
+				font-size: 0.95rem;
+			}
 			.workshopUjAr{
 				font-size: 1.1rem;
 			}
@@ -1677,7 +3292,7 @@
 				font-size: 0.65rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 18px;
+				gap: 12px;
 				padding: 5px 115px;
 			}
 
@@ -1690,7 +3305,7 @@
 				font-size: 0.7rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 1% 1% 0% 1%;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
@@ -1757,14 +3372,15 @@
 				gap: 10px;
 			}
 			.newsletterEmailInput{
-				font-size: 0.6rem;
+				font-size: 0.8rem;
 				padding: 8px 0;
 				min-width: 300px;
 			}
 			.newsletterSubscribeButton{
-				font-size: 0.5rem;
+				font-size: 0.7rem;
 				font-weight: bold;
 				padding: 12px 30px;
+				margin-top: -10px;
 			}
 			.floating-label{
 				color: white;
@@ -1772,7 +3388,7 @@
 				margin-bottom: 5px;
 			}
 			#uzenetiras{
-				height: 370px;
+				height: 390px;
 				width: 700px;
 				padding: 3vh 4vw;
 				gap: 40px;
@@ -1866,7 +3482,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -1905,6 +3521,9 @@
 				font-size: 0.9rem;		/* 1.3rem */
 			}
 			
+			.workshopRegiAr{
+				font-size: 1.05rem;
+			}
 			.workshopUjAr{
 				font-size: 1.2rem;/*1.5rem*/
 			}
@@ -1913,7 +3532,7 @@
 				font-size: 0.65rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 12px;
+				gap: 10px;
 				padding: 5px 115px;
 			}
 			
@@ -1926,7 +3545,7 @@
 				font-size: 0.6rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 1% 1% 0% 1%;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
@@ -2008,7 +3627,7 @@
 				margin-bottom: 5px;
 			}
 			#uzenetiras{
-				height: 355px;
+				height: 385px;
 				width: 700px;
 				padding: 3vh 4vw;
 				gap: 40px;
@@ -2103,7 +3722,7 @@
 
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 
 			#future_edication{
@@ -2142,7 +3761,10 @@
 				gap: 30px;
 				font-size: 0.9rem;
 			}
-
+			
+			.workshopRegiAr{
+				font-size: 0.95rem;
+			}
 			.workshopUjAr{
 				font-size: 1.1rem;
 			}
@@ -2246,7 +3868,7 @@
 				margin-bottom: 5px;
 			}
 			#uzenetiras{
-				height: 370px;
+				height: 390px;
 				width: 700px;
 				padding: 3vh 4vw;
 				gap: 40px;
@@ -2340,7 +3962,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 			}
 			
 			#future_edication{
@@ -2378,7 +4000,9 @@
 				gap: 20px;
 				font-size: 0.9rem;		/* 1.3rem */
 			}
-			
+			.workshopRegiAr{
+				font-size: 1.05rem;
+			}
 			.workshopUjAr{
 				font-size: 1.2rem;/*1.5rem*/
 			}
@@ -2387,7 +4011,7 @@
 				font-size: 0.65rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 12px;
+				gap: 9px;
 				padding: 5px 115px;
 			}
 			
@@ -2400,7 +4024,7 @@
 				font-size: 0.6rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 1% 1% 0% 1%;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
@@ -2574,7 +4198,7 @@
 			
 			.reszletek{
 				padding: 10px 20px;
-				font-size: 0.9em;
+				font-size: 0.9rem;
 			}
 			
 			#future_edication{
@@ -2612,7 +4236,9 @@
 				gap: 20px;
 				font-size: 1.1rem;		/* 1.3rem */
 			}
-			
+			.workshopRegiAr{
+				font-size: 1.15rem;
+			}
 			.workshopUjAr{
 				font-size: 1.3rem;/*1.5rem*/
 			}
@@ -2634,7 +4260,7 @@
 				font-size: 0.8rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 1% ;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
@@ -2646,7 +4272,7 @@
 				font-size: 0.8rem;
 			}
 			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
-				margin-bottom: 15px;
+				margin-bottom: 10px;
 			}
 
 			#tMate{
@@ -2809,7 +4435,7 @@
 			
 			.reszletek{
 				padding: 12px 24px;
-				font-size: 1.1em;
+				font-size: 1.1rem;
 			}
 			
 			.haromD_Feliratok{
@@ -2843,7 +4469,9 @@
 				gap: 25px;
 				font-size: 1.2rem;		/* 1.3rem */
 			}
-			
+			.workshopRegiAr{
+				font-size: 1.25rem;
+			}
 			.workshopUjAr{
 				font-size: 1.4rem;/*1.5rem*/
 			}
@@ -3074,7 +4702,9 @@
 				gap: 25px;
 				font-size: 1.1rem;		/* 1.3rem */
 			}
-			
+			.workshopRegiAr{
+				font-size: 1.15rem;
+			}
 			.workshopUjAr{
 				font-size: 1.3rem;/*1.5rem*/
 			}
@@ -3083,7 +4713,7 @@
 				font-size: 0.9rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 10px;
+				gap: 9px;
 				padding: 5px 115px;
 			}
 			
@@ -3108,7 +4738,7 @@
 				font-size: 0.9rem;
 			}
 			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
-				margin-bottom: 10px;
+				margin-bottom: 8px;
 			}
 			
 			#tMate{
@@ -3322,7 +4952,9 @@
 				gap: 35px;
 				font-size: 1.3rem;		/* !!! */
 			}
-			
+			.workshopRegiAr{
+				font-size: 1.35rem;
+			}
 			.workshopUjAr{
 				font-size: 1.5rem;
 			}
@@ -3332,7 +4964,7 @@
 				font-size: 1.1rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 15px;
+				gap: 12px;
 				padding: 10px 115px;
 				font-size: 1.1rem;
 			}
@@ -3696,6 +5328,78 @@
 
 			setupArrows();
 			
+			
+			
+			const bttnSideMenu = document.getElementById('bttn_sideMenu');
+			const sideMenu = document.getElementById('sideMenu');
+			let menuState = 'hamburger'; // hamburger, minus, x
+
+			if (bttnSideMenu && sideMenu) {
+				// Hamburger menu toggle
+				bttnSideMenu.addEventListener('click', function() {
+					if (menuState === 'hamburger') {
+						// First click: hamburger -> minus -> x
+						bttnSideMenu.classList.remove('state-x');
+						bttnSideMenu.classList.add('state-minus');
+						menuState = 'minus';
+						
+						setTimeout(function() {
+							bttnSideMenu.classList.remove('state-minus');
+							bttnSideMenu.classList.add('state-x');
+							menuState = 'x';
+							sideMenu.classList.add('show');
+						}, 300);
+						
+					} else if (menuState === 'x') {
+						// Second click: x -> minus -> hamburger
+						bttnSideMenu.classList.remove('state-x');
+						bttnSideMenu.classList.add('state-minus');
+						menuState = 'minus';
+						sideMenu.classList.remove('show');
+						
+						setTimeout(function() {
+							bttnSideMenu.classList.remove('state-minus');
+							menuState = 'hamburger';
+						}, 300);
+					}
+				});
+				
+				// SideMenu pontok scroll funkcionalitása
+				const targets = ['rolunk_hatter', 'edication_hatter', 'rovidfilmek_hatter', 'workshops_hatter', 'tMate_hatter', 'kapcsolatHatter'];
+				const sideMenupontok = document.querySelectorAll('.sideMenupont');
+				const menuHeight = document.getElementById('fomenu').offsetHeight;
+
+				if (sideMenupontok.length > 0) {
+					sideMenupontok.forEach((sideMenupont, i) => {
+						sideMenupont.addEventListener('click', () => {
+							const target = document.getElementById(targets[i]);
+							if (target) {
+								// Scroll a megfelelő szekcióhoz
+								window.scrollTo({
+									top: target.getBoundingClientRect().top + window.pageYOffset - menuHeight,
+									behavior: 'smooth'
+								});
+								
+								// Bezárjuk a sideMenu-t (X -> minus -> hamburger)
+								if (menuState === 'x') {
+									bttnSideMenu.classList.remove('state-x');
+									bttnSideMenu.classList.add('state-minus');
+									menuState = 'minus';
+									sideMenu.classList.remove('show');
+									
+									setTimeout(function() {
+										bttnSideMenu.classList.remove('state-minus');
+										menuState = 'hamburger';
+									}, 300);
+								}
+							}
+						});
+					});
+				}
+			}
+			
+			
+			
 			var uzenetirasForm = document.getElementById('uzenetirasForm');
 			if (uzenetirasForm) {
 				uzenetirasForm.addEventListener('submit', function(e) {
@@ -3918,6 +5622,8 @@
 			
 			
 			
+			
+			
 			const bttn_tamogatas = document.getElementById('bttn_tamogatas');
 			const tamogatas = document.getElementById('tamogatas');
 			const tamogatasKuldese = document.getElementById('tamogatasKuldese');
@@ -4052,6 +5758,25 @@
 			<div class="menupont"> contact	</div>
 		</div>
 		<a href="index.html" id="nyelvCsere">HUN</a>
+		
+		<div id="bttn_sideMenu" class="menupont" >
+			<span class="hamburgerIcon" aria-hidden="true">
+				<span class="line top"></span>
+				<span class="line mid"></span>
+				<span class="line bot"></span>
+			</span>
+		</div>
+		
+	</div>
+	
+	<div id="sideMenu">
+			<div class="sideMenupont">about us ›	</div>
+			<div class="sideMenupont"> our method ›	</div>
+			<div  class="sideMenupont"> 3D services ›	</div>
+			<div class="sideMenupont"> workshops ›	</div>
+			<div class="sideMenupont"> our teachers ›	</div>
+			<div class="sideMenupont"> contact ›	</div>
+			<a href="index.html" class="sideMenupont">HUN</a>
 	</div>
 	
 	<div id="toltes">
@@ -4428,115 +6153,119 @@
 	</div>
 	
 	<div id="kapcsolatHatter" class="oldal">
-		<div id="kapcsolat_szurke">
+	<div id="kapcsolat_szurke">
+		<div id="newsLetter" class="lilaHatter">
+			<p>
+				<h2>Subscribe to our newsletter</h2>
+				to get the latest news, educational content, workshops, company updates, and exciting projects!
+			</p>
+			<form id="newsletterForm" class="newsletterForm">
+				<input type="hidden" name="access_key" value="40db931e-5c20-4bda-87b7-00bfea6d8a8d">
+				<input type="hidden" name="subject" value="CGCOMET – Hírlevél feliratkozás">
+				<input type="checkbox" name="botcheck" style="display:none">
+				<input type="email" id="newsletterEmail" name="email" class="newsletterEmailInput" placeholder="emailcímem@gmail.com" required>
+				<button type="submit" id="newsletterFeliratkozom" class="newsletterSubscribeButton">feliratkozom</button>
+				<div id="newsletterUzenet" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
+			</form>
+		</div>
 		
-			<div id="newsLetter" class="lilaHatter">
-				<p>
-					<h2>Subscribe to our newsletter</h2>
-					to get the latest news, educational content, workshops, company updates, and exciting projects!
-				</p>
-				<form id="newsletterForm" class="newsletterForm">
+		<div id="uzenetiras" class="lilaHatter">
+			<div id="uzenetirasMezok">
+				<h2 style="text-align:left;"><span >Write a message</span></h2>
+				<form id="uzenetirasForm">
 					<input type="hidden" name="access_key" value="40db931e-5c20-4bda-87b7-00bfea6d8a8d">
-					<input type="hidden" name="subject" value="CGCOMET – Hírlevél feliratkozás">
+					<input type="hidden" name="subject" value="CGCOMET – Üzenet az oldalról">
 					<input type="checkbox" name="botcheck" style="display:none">
-					<input type="email" id="newsletterEmail" name="email" class="newsletterEmailInput" placeholder="emailcímem@gmail.com" required>
-					<button type="submit" id="newsletterFeliratkozom" class="newsletterSubscribeButton">feliratkozom</button>
-					<div id="newsletterUzenet" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
+					<div class="input-wrapper">
+						<label for="nameMessage" class="floating-label">Full name</label>
+						<input type="text" id="nameMessage" name="name" class="newsletterEmailInput" placeholder="full name" required>
+					</div>
+					<div class="input-wrapper">
+						<label for="emailMessage" class="floating-label">Contact</label>
+						<input type="email" id="emailMessage" name="email" class="newsletterEmailInput" placeholder="e-mail and phone" required>
+					</div>
+					<div class="input-wrapper">
+						<label for="messageText" class="floating-label">Message</label>
+						<input type="text" id="messageText" name="message" class="newsletterEmailInput" placeholder="please write your message here" required>
+					</div>
+					<button type="submit" id="uzenetirasKuldes" class="newsletterSubscribeButton">send</button>
+					<div id="uzenetirasUzenet" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
+				</form>
+			</div>
+			<div>
+					<p>
+						✉️ Email: <span class="conti"><a href="mailto:officalcgcomet@gmail.com">officalcgcomet@gmail.com</a></span>
+					</p>
+					<p>
+						📱 Tel: <span class="conti"><a href="tel:+36302172003">+36 30 2172 003</a></span>
+					</p>
+				</div>
+		</div>
+		
+		<div id="tamogatasWrapper">
+			<div id="tamogatas" class="lilaHatter">
+				<p>
+					<h2>Why support us?</h2>
+					We work with 3D printing, game development, 3D animation, trailer production, and education. Our goal is to create creative, unique, and high-quality projects while giving young talents a chance to grow.
+				</p>
+				
+				<p>
+					<h2>Our upcoming projects:</h2>
+					<br>🎲 publishing our own board games
+					<br>🧑‍💻 recruiting and mentoring juniors
+					<br>🖨️ developing 3D printed products and figurines
+					<br>🎮 creating games and visual content
+					<br>🎓 launching educational programs
+				</p>
+				
+				<p>
+					If you feel these ideas resonate with you and you'd like to help make them happen, we'd be grateful for your support!
+				</p>
+				
+				<form>
+					<button type="button" id="bttn_tamogatas" class="newsletterSubscribeButton">donate</button>
 				</form>
 			</div>
 			
-			<div id="uzenetiras" class="lilaHatter">
-				<div id="uzenetirasMezok">
-					<h2 style="text-align:left;"><span >Write a message</span></h2>
-					<form id="uzenetirasForm">
-						<input type="hidden" name="access_key" value="40db931e-5c20-4bda-87b7-00bfea6d8a8d">
-						<input type="hidden" name="subject" value="CGCOMET – Üzenet az oldalról">
-						<input type="checkbox" name="botcheck" style="display:none">
-						<div class="input-wrapper">
-							<label for="nameMessage" class="floating-label">Full name</label>
-							<input type="text" id="nameMessage" name="name" class="newsletterEmailInput" placeholder="full name" required>
-						</div>
-						<div class="input-wrapper">
-							<label for="emailMessage" class="floating-label">Contact</label>
-							<input type="email" id="emailMessage" name="email" class="newsletterEmailInput" placeholder="e-mail and phone" required>
-						</div>
-						<div class="input-wrapper">
-							<label for="messageText" class="floating-label">Message</label>
-							<input type="text" id="messageText" name="message" class="newsletterEmailInput" placeholder="please write your message here" required>
-						</div>
-						<button type="submit" id="uzenetirasKuldes" class="newsletterSubscribeButton">send</button>
-						<div id="uzenetirasUzenet" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
-					</form>
+			<div id="tamogatasKuldese" class="lilaHatter">
+				<div id="tamogatas_nyil" class="visszanyil">
+					<img src="balraNyil.png" alt="left arrow" loading="lazy">
 				</div>
-			
-			
-			<div id="tamogatasWrapper">
-				<div id="tamogatas" class="lilaHatter">
-					<p>
-						<h2>Why support us?</h2>
-						We work with 3D printing, game development, 3D animation, trailer production, and education. Our goal is to create creative, unique, and high-quality projects while giving young talents a chance to grow.
-					</p>
-					
-					<p>
-						<h2>Our upcoming projects:</h2>
-						<br>🎲 publishing our own board games
-						<br>🧑‍💻 recruiting and mentoring juniors
-						<br>🖨️ developing 3D printed products and figurines
-						<br>🎮 creating games and visual content
-						<br>🎓 launching educational programs
-					</p>
-					
-					<p>
-						If you feel these ideas resonate with you and you'd like to help make them happen, we'd be grateful for your support!
-					</p>
-					
-					<form>
-						<button type="button" id="bttn_tamogatas" class="newsletterSubscribeButton">donate</button>
-					</form>
-				</div>
-				
-				<div id="tamogatasKuldese" class="lilaHatter">
-					<div id="tamogatas_nyil" class="visszanyil">
-						<img src="balraNyil.png" alt="left arrow" loading="lazy">
+				<h2>Thank you for supporting our work!</h2>
+				<form id="tamogatasForm" class="foglalasForm" onsubmit="event.preventDefault(); return false;">
+					<div class="input-wrapper" id="tamogatasOsszegWrapper">
+						<div class="input-with-spinner">
+							<input type="number" id="tamogatasOsszeg" class="newsletterEmailInput" placeholder="donation amount (HUF)" min="500" step="500" required>
+							<div class="spinner-buttons">
+								<button type="button" class="spinner-btn" id="spinner-up">▲</button>
+								<button type="button" class="spinner-btn" id="spinner-down">▼</button>
+							</div>
+						</div>
 					</div>
-					<h2>Thank you for supporting our work!</h2>
-					<form id="tamogatasForm" class="foglalasForm" onsubmit="event.preventDefault(); return false;">
-						<div class="input-wrapper" id="tamogatasOsszegWrapper">
-							<div class="input-with-spinner">
-								<input type="number" id="tamogatasOsszeg" class="newsletterEmailInput" placeholder="donation amount (HUF)" min="500" step="500" required>
-								<div class="spinner-buttons">
-									<button type="button" class="spinner-btn" id="spinner-up">▲</button>
-									<button type="button" class="spinner-btn" id="spinner-down">▼</button>
-								</div>
-							</div>
-						</div>
-						
+					
+					<div class="input-wrapper">
+						<input type="text" id="kartyaSzam" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="1234 5678 9012 3456" maxlength="19" required>
+					</div>
+					
+					<div style="display: flex; gap: 5px;">
 						<div class="input-wrapper">
-							<input type="text" id="kartyaSzam" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="1234 5678 9012 3456" maxlength="19" required>
+							<input type="text" id="lejaratiDatum" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="MM/YY" maxlength="5" required>
 						</div>
-						
-						<div style="display: flex; gap: 5px;">
-							<div class="input-wrapper">
-								<input type="text" id="lejaratiDatum" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="MM/YY" maxlength="5" required>
-							</div>
-							<div class="input-wrapper">
-								<input type="text" id="cvv" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="CVC" maxlength="3" required>
-							</div>
-						</div>
-						
 						<div class="input-wrapper">
-							<input type="text" id="kartyaNev" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="name on card" required>
+							<input type="text" id="cvv" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="CVC" maxlength="3" required>
 						</div>
-						
-						
-						<button type="submit" class="newsletterSubscribeButton">submit donation</button>
-					</form>
-				</div>
-		</div>
-			
-			
+					</div>
+					
+					<div class="input-wrapper">
+						<input type="text" id="kartyaNev" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="name on card" required>
+					</div>
+					
+					<button type="submit" class="newsletterSubscribeButton">submit donation</button>
+				</form>
+			</div>
 		</div>
 	</div>
+</div>
 	
 	
 </body>
