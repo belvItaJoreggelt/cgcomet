@@ -11,7 +11,6 @@
 			padding: 0;
 			margin: 0;
 			box-sizing: border-box;
-		
 		}
 		
 		html{
@@ -5105,6 +5104,27 @@
 	</style>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
+			const video = document.getElementById('rolunk_video');
+			if (video) {
+				const videoObserver = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							// Ha a videó látható, indítsuk el
+							video.play().catch(err => {
+								console.log('Videó lejátszás indítása sikertelen:', err);
+							});
+						} else {
+							// Ha a videó nem látható, állítsuk meg
+							video.pause();
+						}
+					});
+				}, {
+					threshold: 0.5 // Legalább 50%-ban látható legyen
+				});
+				
+				videoObserver.observe(video);
+			}
+			
 			const tartalomElements = document.querySelectorAll('.fenycsik');
 			const fomenu = document.getElementById('fomenu');
 			
@@ -5747,7 +5767,7 @@
 	</div>
 	
 	<div id="rolunk_hatter" class="oldal">
-		<video id="rolunk_video" autoplay muted loop playsinline preload="metadata">
+		<video id="rolunk_video" muted loop playsinline preload="metadata">
 			<source src="cg_rolunk_hatter2.mp4" type="video/mp4">
 			A böngésző nem támogatja a videó lejátszást.
 		</video>
