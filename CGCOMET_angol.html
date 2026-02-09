@@ -5624,40 +5624,6 @@
 			
 			
 			
-			
-			
-			const bttn_tamogatas = document.getElementById('bttn_tamogatas');
-			const tamogatas = document.getElementById('tamogatas');
-			const tamogatasKuldese = document.getElementById('tamogatasKuldese');
-			const tamogatas_nyil = document.getElementById('tamogatas_nyil');
-
-			bttn_tamogatas.addEventListener('click', function() {
-				tamogatas.style.opacity = '0';
-				tamogatas.style.pointerEvents = 'none';
-				tamogatasKuldese.style.opacity = '1';
-				tamogatasKuldese.style.pointerEvents = 'auto';
-			});
-
-			tamogatas_nyil.addEventListener('click', function() {
-				tamogatasKuldese.style.opacity = '0';
-				tamogatasKuldese.style.pointerEvents = 'none';
-				tamogatas.style.opacity = '1';
-				tamogatas.style.pointerEvents = 'auto';
-			});
-			
-			
-			
-			const tamogatasOsszeg = document.getElementById('tamogatasOsszeg');
-			const spinnerUp = document.getElementById('spinner-up');
-			const spinnerDown = document.getElementById('spinner-down');
-
-			spinnerUp.addEventListener('click', function() {
-				tamogatasOsszeg.stepUp();
-			});
-
-			spinnerDown.addEventListener('click', function() {
-				tamogatasOsszeg.stepDown();
-			});
 		});
 		
 		// Menüpontok scroll funkcionalitása
