@@ -11,6 +11,8 @@
 			padding: 0;
 			margin: 0;
 			box-sizing: border-box;
+			backdrop-filter: none !important;
+			-webkit-backdrop-filter: none !important;
 		}
 		
 		html{
@@ -404,7 +406,8 @@
 			flex-direction: row;
 			font-size: 1.3rem;
 			background: rgba(0, 0, 0, 0.6);
-			
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
 			z-index: 10;
 			border: 3px solid transparent; /* Alapból transparent */
 			transition: border-color 1s linear;
@@ -596,7 +599,8 @@
 			display: flex;
 			/*flex-direction: column;*/
 			background: rgba(0, 0, 0, 0.6);
-			
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
 			border-radius: 20px;
 			transition: border-color 1s linear;
 			color: white;
