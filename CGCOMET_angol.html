@@ -1465,9 +1465,9 @@
 		
 		@media screen and (max-height: 641px) and (max-width: 1023px){
 			.oldal{
-				height: 95vh;
+				calc(95vh - 70px);
 			}
-		
+			
 			.toltesek {
 				height: 70px;
 			}
@@ -1540,13 +1540,20 @@
 				align-items: center;
 				padding-top: 0;
 			}
+			#rolunk_hatter {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				padding-top: 0;
+			}
 			#rolunk {
-				width: 75%;
+				width: 85%;
 				padding: 20px;
 				text-align: center;
 			}
 			#rolunk{
-				font-size: 0.7rem;
+				font-size: 0.8rem;
 			}
 			
 			.tartalom {
@@ -1554,8 +1561,8 @@
 				align-items: center;
 				justify-content: center;
 				height: 92%;
-				width: 82vw;
-				font-size: 0.75rem;
+				width: 90vw;
+				font-size: 0.8rem;
 				padding: 0px 0px;
 			}
 			
@@ -1578,30 +1585,36 @@
 
 			.reszletek{
 				position: absolute;
-				bottom: 5%;
+				bottom: 12%;
 				left: 50%;
 				transform: translateX(-50%);
 				padding: 10px 20px;
-				font-size: 0.6rem;
+				font-size: 0.65rem;
 			}
 
 			#future_edication{
-				height: 80%;
-				width: 80vw;
-				padding: 5px 50px 10px 50px;
-				font-size: 0.50rem;
+				height: 92%;
+				width: 90vw;
+				padding: 10px;
+				font-size: 0.7rem;
+				overflow-y: auto;
 			}
 
 			.haromD_Feliratok{
-				font-size: 1.5rem;
+				font-size: 1.8rem;
 			}
-
+			
+			#rovidfilmek_hatter{
+				height: auto;
+				min-height: 120vh;
+			}
+			
 			#haromDszolgaltatasok{
 				height: auto;
-				width: 80vw;
-				font-size: 0.5rem;
+				width: 90vw;
+				font-size: 0.8rem;
 				padding: 20px;
-				gap: 30px;
+				gap: 40px;
 			}
 			
 			.haromD_Tetel{
@@ -1609,18 +1622,18 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 5px;
+				gap: 7px;
 				width: 92%;
 			}
 		
 			.haromD_Tetel img{
-				height: 75px;
+				height: 90px;
 				width: auto;
 			}
 
 			.privatApplyButton{
 				padding: 11px 19px;
-				font-size: 0.55em;
+				font-size: 0.65rem;
 			}
 			
 			.masodikFelvonas{
@@ -1631,37 +1644,38 @@
 			#workshops_bemutatas{
 				display: flex;
 				flex-direction: column;
-				gap: 10px;	
+				gap: 15px;	
 				align-items: center;
+				overflow-y: auto;
 			}
 			
 			.workshopTetel{
 				width: 95%;
-				gap: 7px;
-				font-size: 0.6rem;
+				gap: 10px;
+				font-size: 0.8rem;
 				align-items: center;
 				justify-content: center;
 			}
 			#workshops_bemutatas .workshopTetel img{
-				height: 60px;
+				height: 80px;
 			}
 			
 			.workshopRegiAr{
-				font-size: 0.65rem;
+				font-size: 0.55rem;
 			}
 			.workshopUjAr{
-				font-size: 0.8rem;
+				font-size: 0.7rem;
 			}
 			.workshopKedvezmeny{
-				top: -7px;
+				top: -10px;
 				right: -40px;
 			}
 			.workshopApplyButton{
 				padding: 8px 25px;
-				font-size: 0.45rem;
+				font-size: 0.65rem;
 			}
 			#hD_foglalas,#festo_foglalas{
-				gap: 8px;
+				gap: 20px;
 				padding: 30px;
 				justify-content: center;
 			}
@@ -1684,7 +1698,7 @@
 			}
 			.felvonas ul {
 				margin-left: 5%;
-				margin-top: -5px;
+				margin-bottom: 10px;
 				font-size: 0.55rem;
 			}
 			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
@@ -1692,21 +1706,18 @@
 			}
 			
 			#tMate{
+				height: 95%;
 				grid-template-columns: 100%;
-				grid-template-rows: 55% 30%;
+				grid-template-rows: 45% 30%;
 				width: 90vw;
 				padding: 5% 8%;
-				font-size: 0.60rem;
-				gap: 7px;
+				font-size: 0.65rem;
+				gap: 10px;
 				align-items: flex-start;
 			}
 			#tMateImageDiv{
 				grid-row: 2;
 			}
-			#tMate .reszletek{
-				bottom: 1%;
-			}
-			
 			.arrowLeft {
 				left: 10px;
 				width: 20px;
@@ -1718,11 +1729,12 @@
 				height: 24px;
 			}
 			.tanarok{
+				height: 95%;
 				grid-template-columns: 100%;
-				grid-template-rows: 55% 30%;
+				grid-template-rows: 50% 30%;
 				width: 90vw;
-				font-size: 0.60rem;
-				gap: 7px;
+				font-size: 0.65rem;
+				gap: 10px;
 				align-items: flex-start;
 			}
 			.tanarok .reszletek{
@@ -1734,6 +1746,7 @@
 			}
 			
 			.tanarReszletek{
+				height: 95%;
 				width: 90vw;
 				padding: 10% 4% 8% 4%;
 				gap: 20px;
@@ -1853,7 +1866,7 @@
 		}
 		@media screen and (min-height: 642px) and (max-width: 1023px){
 			.oldal{
-				height: 92vh;
+				calc(95vh - 75px);
 			}
 			.toltesek {
 				height: 75px;
@@ -1866,7 +1879,7 @@
 				font-size: 1.6rem;
 			}
 			h2{
-				font-size: 0.85rem;
+				font-size: 1.1rem;
 			}
 			#fomenu{
 				height: 75px;
@@ -1927,12 +1940,12 @@
 				padding-top: 0;
 			}
 			#rolunk {
-				width: 75%;
+				width: 85%;
 				padding: 20px;
 				text-align: center;
 			}
 			#rolunk{
-				font-size: 0.7rem;
+				font-size: 0.9rem;
 			}
 			
 			.tartalom {
@@ -1940,7 +1953,7 @@
 				align-items: center;
 				justify-content: center;
 				height: 92%;
-				width: 82vw;
+				width: 90vw;
 				font-size: 0.9rem;
 				padding: 0px 0px;
 			}
@@ -1968,26 +1981,32 @@
 				left: 50%;
 				transform: translateX(-50%);
 				padding: 10px 20px;
-				font-size: 0.6rem;
+				font-size: 0.7rem;
 			}
 
 			#future_edication{
-				height: 80%;
-				width: 80vw;
-				padding: 5px 50px 10px 50px;
-				font-size: 0.55rem;
+				height: 92%;
+				width: 90vw;
+				padding: 10px;
+				font-size: 0.8rem;
+				overflow-y: auto;
 			}
 
 			.haromD_Feliratok{
 				font-size: 1.9rem;
 			}
-
+			
+			#rovidfilmek_hatter{
+				height: auto;
+				min-height: 120vh;
+			}
+			
 			#haromDszolgaltatasok{
 				height: auto;
-				width: 80vw;
-				font-size: 0.5rem;
+				width: 90vw;
+				font-size: 0.9rem;
 				padding: 20px;
-				gap: 30px;
+				gap: 40px;
 			}
 			
 			.haromD_Tetel{
@@ -2006,7 +2025,7 @@
 
 			.privatApplyButton{
 				padding: 11px 19px;
-				font-size: 0.55em;
+				font-size: 0.7rem;
 			}
 			
 			.masodikFelvonas{
@@ -2019,12 +2038,13 @@
 				flex-direction: column;
 				gap: 15px;	
 				align-items: center;
+				overflow-y: auto;
 			}
 			
 			.workshopTetel{
 				width: 95%;
 				gap: 10px;
-				font-size: 0.6rem;
+				font-size: 0.9rem;
 				align-items: center;
 				justify-content: center;
 			}
@@ -2044,7 +2064,7 @@
 			}
 			.workshopApplyButton{
 				padding: 8px 25px;
-				font-size: 0.45rem;
+				font-size: 0.7rem;
 			}
 			#hD_foglalas,#festo_foglalas{
 				gap: 20px;
@@ -2078,6 +2098,7 @@
 			}
 			
 			#tMate{
+				height: 95%;
 				grid-template-columns: 100%;
 				grid-template-rows: 45% 30%;
 				width: 90vw;
@@ -2100,19 +2121,23 @@
 				height: 24px;
 			}
 			.tanarok{
+				height: 95%;
 				grid-template-columns: 100%;
-				grid-template-rows: 45% 30%;
+				grid-template-rows: 49% 30%;
 				width: 90vw;
 				font-size: 0.65rem;
 				gap: 10px;
 				align-items: flex-start;
 			}
-			
+			.tanarok .reszletek{
+				bottom: 8%;
+			}
 			#sNoemiImageDiv{
 				grid-row: 2;
 			}
 			
 			.tanarReszletek{
+				height: 95%;
 				width: 90vw;
 				padding: 10% 4% 8% 4%;
 				gap: 20px;
@@ -2189,7 +2214,7 @@
 				gap: 40px;
 			}
 			#tamogatasWrapper{
-				height: 415px;
+				height: 445px;
 				width: 310px;
 			}
 			#tamogatas{
@@ -2233,6 +2258,9 @@
 		
 		
 		@media screen and (min-height: 820px) and (max-width: 1023px){
+			.oldal{
+				calc(95vh - 80px);
+			}
 			.toltesek {
 				height: 80px;
 			}
@@ -2302,12 +2330,12 @@
 				padding-top: 0;
 			}
 			#rolunk {
-				width: 75%;
+				width: 85%;
 				padding: 20px;
 				text-align: center;
 			}
 			#rolunk{
-				font-size: 0.8rem;
+				font-size: 0.9rem;
 			}
 			
 			.tartalom {
@@ -2315,8 +2343,8 @@
 				align-items: center;
 				justify-content: center;
 				height: 92%;
-				width: 82vw;
-				font-size: 1.0rem;
+				width: 90vw;
+				font-size: 0.9rem;
 				padding: 0px 0px;
 			}
 			
@@ -2333,7 +2361,7 @@
 				top: 0;
 				right: 0;
 				z-index: 2;
-				height: 70px;
+				height: 60px;
 				width: auto;
 			}
 
@@ -2347,22 +2375,28 @@
 			}
 
 			#future_edication{
-				height: 80%;
-				width: 80vw;
-				padding: 5px 50px 10px 50px;
-				font-size: 0.65rem;
+				height: 92%;
+				width: 90vw;
+				padding: 10px;
+				font-size: 0.8rem;
+				overflow-y: auto;
 			}
 
 			.haromD_Feliratok{
-				font-size: 2.0rem;
+				font-size: 1.9rem;
 			}
-
+			
+			#rovidfilmek_hatter{
+				height: auto;
+				min-height: 95vh;
+			}
+			
 			#haromDszolgaltatasok{
 				height: auto;
-				width: 80vw;
-				font-size: 0.6rem;
+				width: 90vw;
+				font-size: 0.9rem;
 				padding: 20px;
-				gap: 37px;
+				gap: 40px;
 			}
 			
 			.haromD_Tetel{
@@ -2370,19 +2404,18 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				
-				gap: 12px;
+				gap: 7px;
 				width: 92%;
 			}
 		
 			.haromD_Tetel img{
-				height: 100px;
+				height: 90px;
 				width: auto;
 			}
 
 			.privatApplyButton{
 				padding: 11px 19px;
-				font-size: 0.55rem;
+				font-size: 0.7rem;
 			}
 			
 			.masodikFelvonas{
@@ -2393,29 +2426,35 @@
 			#workshops_bemutatas{
 				display: flex;
 				flex-direction: column;
-				gap: 40px;	
+				gap: 15px;	
 				align-items: center;
+				overflow-y: auto;
 			}
 			
 			.workshopTetel{
-				width: 90%;
+				width: 95%;
 				gap: 10px;
-				font-size: 0.7rem;
+				font-size: 0.9rem;
 				align-items: center;
 				justify-content: center;
 			}
 			#workshops_bemutatas .workshopTetel img{
 				height: 80px;
 			}
+			
 			.workshopRegiAr{
-				font-size: 0.75rem;
+				font-size: 0.65rem;
 			}
 			.workshopUjAr{
-				font-size: 0.9rem;
+				font-size: 0.8rem;
+			}
+			.workshopKedvezmeny{
+				top: -10px;
+				right: -50px;
 			}
 			.workshopApplyButton{
 				padding: 8px 25px;
-				font-size: 0.65rem;
+				font-size: 0.7rem;
 			}
 			#hD_foglalas,#festo_foglalas{
 				gap: 20px;
@@ -2424,12 +2463,12 @@
 			}
 
 			.nNagyobb{
-				font-size: 0.95rem;
+				font-size: 0.8rem;
 			}
 
 			.fMenete{
 				margin-top: 10px;
-				font-size: 0.9rem;
+				font-size: 0.6rem;
 			}
 			.foglalasForm{
 				padding: 4%;
@@ -2437,23 +2476,24 @@
 			.foglalasForm select {
 				padding: 7px 15px;
 				margin-bottom: 20px;
-				font-size: 0.55rem;
+				font-size: 0.5rem;
 			}
 			.felvonas ul {
 				margin-left: 5%;
 				margin-bottom: 10px;
-				font-size: 0.7rem;
+				font-size: 0.6rem;
 			}
 			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
-				margin-bottom: 15px;
+				margin-bottom: 12px;
 			}
 			
 			#tMate{
+				height: 95%;
 				grid-template-columns: 100%;
 				grid-template-rows: 40% 30%;
 				width: 90vw;
 				padding: 5% 8%;
-				font-size: 0.6rem;
+				font-size: 0.65rem;
 				gap: 10px;
 				align-items: flex-start;
 			}
@@ -2462,6 +2502,7 @@
 			}
 			
 			.tanarok{
+				height: 95%;
 				grid-template-columns: 100%;
 				grid-template-rows: 40% 24%;
 				width: 90vw;
@@ -2475,6 +2516,7 @@
 			}
 			
 			.tanarReszletek{
+				height: 95%;
 				width: 90vw;
 				padding: 10% 4% 8% 4%;
 				gap: 30px;
@@ -2491,7 +2533,7 @@
 				
 			}
 			.egy_tanarParameter{
-				height: 40%;
+				height: 37%;
 				/*
 				flex: 1;
 				min-width: 215px;*/
@@ -2601,10 +2643,10 @@
 				height: 90px;
 			}
 			h1{
-				font-size: 2.4rem;
+				font-size: 2.55rem;
 			}
 			h2{
-				font-size: 1.25rem;
+				font-size: 1.5rem;
 			}
 			#fomenu{
 				height: 85px;
@@ -2658,24 +2700,25 @@
 				padding-top: 0;
 			}
 			#rolunk {
-				width: 75%;
+				width: 85%;
 				padding: 20px;
 				text-align: center;
+				font-size: 1rem;
 			}
-			#rolunk{
-				font-size: 1.0rem;
-			}
-
+			
 			.tartalom {
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				height: 80%;
-				width: 75vw;
-				font-size: 1.2rem;
+				height: 92%;
+				width: 90vw;
+				font-size: 1.1rem;
 				padding: 0px 0px;
 			}
 			
+			.felvonas{
+				width: 90vw;
+			}
 			.szoveg{
 				padding-top: 2%;
 				width: 90%; 
@@ -2686,7 +2729,7 @@
 				top: 0;
 				right: 0;
 				z-index: 2;
-				height: 75px;
+				height: 60px;
 				width: auto;
 			}
 
@@ -2700,25 +2743,26 @@
 			}
 
 			#future_edication{
-				height: 80%;
-				width: 80vw;
-				padding: 5px 50px 10px 50px;
-				font-size: 0.85rem;
+				height: 92%;
+				width: 90vw;
+				padding: 20px;
+				font-size: 1.1rem;
+				overflow-y: auto;
 			}
 
-			#future_edication_nyil{
-				width: 80px;
-				height: 80px;
+			.haromD_Feliratok{
+				font-size: 2.4rem;
 			}
 			
-			.haromD_Feliratok{
-				font-size: 2.2rem;
+			#rovidfilmek_hatter{
+				height: auto;
+				min-height: 95vh;
 			}
-
+			
 			#haromDszolgaltatasok{
 				height: auto;
-				width: 80vw;
-				font-size: 0.8rem;
+				width: 90vw;
+				font-size: 1.1rem;
 				padding: 20px;
 				gap: 40px;
 			}
@@ -2728,37 +2772,37 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				
-				gap: 30px;
-				width: 90%;
+				gap: 7px;
+				width: 92%;
 			}
 		
 			.haromD_Tetel img{
-				height: 120px;
+				height: 90px;
 				width: auto;
 			}
 
 			.privatApplyButton{
 				padding: 11px 19px;
-				font-size: 0.55rem;
+				font-size: 0.8rem;
 			}
 			
 			.masodikFelvonas{
-				height: 92%;
+				height: 95%;
 				z-index: 11;
 			}
 		
 			#workshops_bemutatas{
 				display: flex;
 				flex-direction: column;
-				gap: 40px;	
+				gap: 15px;	
 				align-items: center;
+				overflow-y: auto;
 			}
 			
 			.workshopTetel{
-				width: 90%;
-				gap: 22px;
-				font-size: 0.9rem;
+				width: 95%;
+				gap: 10px;
+				font-size: 1.1rem;
 				align-items: center;
 				justify-content: center;
 			}
@@ -2767,14 +2811,18 @@
 			}
 			
 			.workshopRegiAr{
-				font-size: 0.95rem;
+				font-size: 0.75rem;
 			}
 			.workshopUjAr{
-				font-size: 1.1rem;
+				font-size: 0.9rem;
+			}
+			.workshopKedvezmeny{
+				top: -10px;
+				right: -50px;
 			}
 			.workshopApplyButton{
 				padding: 8px 25px;
-				font-size: 0.65rem;
+				font-size: 0.8rem;
 			}
 			#hD_foglalas,#festo_foglalas{
 				gap: 20px;
@@ -2783,36 +2831,37 @@
 			}
 
 			.nNagyobb{
-				font-size: 1.25rem;
+				font-size: 0.9rem;
 			}
 
 			.fMenete{
 				margin-top: 10px;
-				font-size: 0.9rem;
+				font-size: 0.7rem;
 			}
 			.foglalasForm{
-				padding: 1%;
+				padding: 4%;
 			}
 			.foglalasForm select {
 				padding: 7px 15px;
 				margin-bottom: 20px;
-				font-size: 0.8rem;
+				font-size: 0.65rem;
 			}
 			.felvonas ul {
 				margin-left: 5%;
-				margin-top: -10px;
-				font-size: 0.9rem;
+				margin-bottom: 10px;
+				font-size: 0.75rem;
 			}
 			#hD_form .input-wrapper,#festo_form .input-wrapper, #hD_form select,#festo_form select{
-				margin-bottom: 15px;
+				margin-bottom: 12px;
 			}
 			
 			#tMate{
+				height: 95%;
 				grid-template-columns: 100%;
 				grid-template-rows: 40% 30%;
 				width: 90vw;
 				padding: 5% 8%;
-				font-size: 0.8rem;
+				font-size: 1.0rem;
 				gap: 10px;
 				align-items: flex-start;
 			}
@@ -2821,10 +2870,11 @@
 			}
 			
 			.tanarok{
+				height: 95%;
 				grid-template-columns: 100%;
-				grid-template-rows: 40% 30%;
+				grid-template-rows: 50% 24%;
 				width: 90vw;
-				font-size: 0.8rem;
+				font-size: 1.0rem;
 				gap: 10px;
 				align-items: flex-start;
 			}
@@ -2834,34 +2884,34 @@
 			}
 			
 			.tanarReszletek{
-				
+				height: 95%;
 				width: 90vw;
-				padding: 8% 4%;
-				gap: 50px;
-				font-size: 0.7rem;
+				padding: 10% 4% 8% 4%;
+				gap: 30px;
+				font-size: 0.6rem;
 			}
 			
 			.tanarNevFelirat{
-				font-size: 2.5rem;
+				font-size: 1.6rem;
 			}
 			.tanarParameterek{
 				flex-wrap: wrap;
 				height: 90%;
-				gap: 12px;
+				gap: 5px;
 				
 			}
 			.egy_tanarParameter{
-				height: 40%;
+				height: 37%;
 				/*
 				flex: 1;
 				min-width: 215px;*/
 				flex: 1 1 45%;
-				min-width: 185px;
+				min-width: 162px;
 				max-width: 45%;
 			}
 			.parameterek_Nev{
 				padding: 5%;
-				font-size: 0.85rem;
+				font-size: 0.75rem;
 			}
 			.parameterek_Adat{
 				margin-top: 2px;
@@ -2881,7 +2931,7 @@
 			.lilaHatter{
 			
 				padding: 3vh 4vw;
-				font-size: 0.9rem;
+				font-size: 0.8rem;
 			}
 			#newsLetter{
 				height: 185px;
@@ -5793,7 +5843,7 @@
 			<div id="future_edication_nyil" class="visszanyil">
 				<img src="balraNyil.png" alt="left arrow" loading="lazy">
 			</div>
-			<p><span class="haromD_Feliratok">Education for future creators</span>
+			<p><h1>Education for future creators</h1>
 			</p>
 			<p>We offer a variety of educational options for our students across a wide range of creative and technical fields. Whether it's programming, concept art, 3D design, digital painting, web design, or something else, you'll find the right specialized courses with us. Instruction is in Hungarian; online learning is available in many areas, while certain courses are held exclusively in person.
 			</p>
