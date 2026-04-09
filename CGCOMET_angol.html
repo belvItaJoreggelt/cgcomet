@@ -24,7 +24,6 @@
 	<meta name="twitter:description" content="3D printing, workshops, and creative education in Budapest and online.">
 	<meta name="twitter:image" content="https://www.cgcomet.hu/logo_HN.webp">
 
-
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -539,7 +538,7 @@
 			right: 0;
 			width: 45vw;
 			padding: 5% 15% 5% 3%;
-			background: white;
+			background: black;
 			z-index: 110;
 			gap: 20px;
 			position: fixed;
@@ -547,9 +546,6 @@
 			transform: translateX(100%);
 			opacity: 0;
 			pointer-events: none;
-			background-image: url('feher_top.webp');
-			background-size: cover;
-			background-position: center;
 		}
 		#sideMenu.show {
 			display: flex;
@@ -564,7 +560,7 @@
 			padding: 10px 40px 10px 20px;
 			text-align: left;
 			border-radius: 10px;
-			/*/background:
+			background:
 			radial-gradient(circle at top right,
 					  rgba(184, 76, 255, 0.35),
 					  rgba(184, 76, 255, 0.15) 40%,
@@ -572,10 +568,9 @@
 
 			backdrop-filter: blur(18px);
 			-webkit-backdrop-filter: blur(18px);
-			color: transparent;*/
-			background: linear-gradient(to right, white 0%, #e8eef5 40%, #a8c4dc 70%, #0F3460 100%);
-border-left: 2px solid #0F3460;
-			color: rgb(24, 23, 23);	
+
+			border-left: 2px solid rgba(184, 76, 255, 0.35);
+			
 		}
 		
 		#bttn_sideMenu {
@@ -588,11 +583,6 @@ border-left: 2px solid #0F3460;
 			min-width: auto;
 			position: absolute;
 			right: 40px;
-			color:rgb(143, 9, 9);
-			display: flex;
-			text-decoration: none;
-			border: solid 0.5px rgb(233, 229, 229);
-			background-image: linear-gradient(to top right, rgba(216, 180, 131, 0.7), rgb(233, 229, 229));
 		}
 
 		.hamburgerIcon {
@@ -1050,8 +1040,9 @@ border-left: 2px solid #0F3460;
 			-webkit-backdrop-filter: blur(10px);
 			backdrop-filter: blur(10px);
 			border-radius: 20px;
+			transition: border-color 1s linear;
 			color: white;
-			transition: border-color 1s linear, opacity 0.5s linear;
+			transition: opacity 0.5s linear;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -1831,9 +1822,9 @@ border-left: 2px solid #0F3460;
 			text-align: left;
 		}
 		
-		#uzenetirasMezok{
-			/*display: flex;
-			justify-content: space-between;*/
+		uzenetirasMezok{
+			display: flex;
+			justify-content: space-between;
 		}
 		
 		.conti{
@@ -1914,7 +1905,7 @@ border-left: 2px solid #0F3460;
 		
 		@media screen and (max-height: 641px) and (max-width: 1023px){
 			.oldal{
-			
+				calc(95vh - 70px);
 			}
 			
 			.toltesek {
@@ -2315,7 +2306,7 @@ border-left: 2px solid #0F3460;
 		}
 		@media screen and (min-height: 642px) and (max-width: 1023px){
 			.oldal{
-				
+				calc(95vh - 75px);
 			}
 			.toltesek {
 				height: 75px;
@@ -2708,7 +2699,7 @@ border-left: 2px solid #0F3460;
 		
 		@media screen and (min-height: 820px) and (max-width: 1023px){
 			.oldal{
-				
+				calc(95vh - 80px);
 			}
 			.toltesek {
 				height: 80px;
@@ -5616,17 +5607,15 @@ border-left: 2px solid #0F3460;
 				const videoObserver = new IntersectionObserver((entries) => {
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
-							// Ha a videó látható, indítsuk el
 							video.play().catch(err => {
-								console.log('Videó lejátszás indítása sikertelen:', err);
+								console.log('Failed to start video playback:', err);
 							});
 						} else {
-							// Ha a videó nem látható, állítsuk meg
 							video.pause();
 						}
 					});
 				}, {
-					threshold: 0.5 // Legalább 50%-ban látható legyen
+					threshold: 0.5
 				});
 				
 				videoObserver.observe(video);
@@ -5641,26 +5630,19 @@ border-left: 2px solid #0F3460;
 					const fomenuBottom = fomenu.getBoundingClientRect().bottom;
 					const tartalomTop = rect.top;
 					
-					// Teljes elem függőlegesen látható-e? (felül és alul is)
-					const isFullyVisibleVertically = rect.top >= 0 && 
-													 rect.bottom <= window.innerHeight;
-					
-					// Ha a tartalom a fomenu alatt van ÉS teljesen látható
+					const isFullyVisibleVertically = rect.top >= 0 && rect.bottom <= window.innerHeight;
 					const isBelowMenu = tartalomTop > fomenuBottom;
 					
 					if (isFullyVisibleVertically && isBelowMenu) {
-						// Csak akkor aktiváljuk, ha még nem aktiválva volt
 						if (!element.classList.contains('animate')) {
 							element.classList.add('animate');
 						}
 					} else {
-						// Ha nem teljesen látható, eltávolítjuk
 						element.classList.remove('animate');
 					}
 				});
 			}
 			
-			// Ellenőrizzük scroll esetén (throttle-elve a teljesítményért)
 			let ticking = false;
 			window.addEventListener('scroll', function() {
 				if (!ticking) {
@@ -5672,7 +5654,6 @@ border-left: 2px solid #0F3460;
 				}
 			});
 			
-			// Ellenőrizzük az oldal betöltésekor is
 			checkElements();
 			
 			const bttnOktatasReszletek = document.getElementById('bttn_oktatasReszletek');
@@ -5681,18 +5662,17 @@ border-left: 2px solid #0F3460;
 			const future_edication_nyil= document.getElementById('future_edication_nyil');
 			
 			bttnOktatasReszletek.addEventListener('click', function() {
-					oktatas.style.opacity = '0'; // Eltűnik
+					oktatas.style.opacity = '0';
 					future_edication.style.opacity = '1';
 					future_edication.style.pointerEvents = 'auto';
 				});
 				
 			future_edication_nyil.addEventListener('click', function() {
-					future_edication.style.opacity = '0'; // Eltűnik
+					future_edication.style.opacity = '0';
 					future_edication.style.pointerEvents = 'none';
 					oktatas.style.opacity = '1';
 					oktatas.style.pointerEvents = 'auto';
 				});
-			
 			
 			const bttn_workshopsReszletek = document.getElementById('bttn_workshopsReszletek');
 			const workshops = document.getElementById('workshops');
@@ -5770,7 +5750,6 @@ border-left: 2px solid #0F3460;
 				tMate.style.pointerEvents = 'auto';
 			});
 			
-			
 			const sNoemi = document.getElementById('sNoemi');
 			const bttn_sNoemi = document.getElementById('bttn_sNoemi');
 			const sNoemi_reszletek = document.getElementById('sNoemi_reszletek');
@@ -5790,24 +5769,18 @@ border-left: 2px solid #0F3460;
 				sNoemi.style.pointerEvents = 'auto';
 			});
 			
-			
-			// Tanár div-ek navigációja arrowLeft és arrowRight gombokkal
 			const tanarCards = document.querySelectorAll('.teacherCard');
 			let currentIndex = 0;
 
-			// Kezdeti állapot: csak az első div látható
 			function showTanar(index) {
 				tanarCards.forEach((card, i) => {
 					if (i === index) {
 						card.style.opacity = '1';
 						card.style.pointerEvents = 'auto';
 						card.style.display = 'grid';
-						
-						// Fenycsik animáció újraindítása
 						const fenycsik = card.querySelector('.fenycsik');
 						if (fenycsik) {
 							fenycsik.classList.remove('animate');
-							// Kis késleltetés, hogy az animáció újrainduljon
 							setTimeout(() => {
 								fenycsik.classList.add('animate');
 							}, 50);
@@ -5816,8 +5789,6 @@ border-left: 2px solid #0F3460;
 						card.style.opacity = '0';
 						card.style.pointerEvents = 'none';
 						card.style.display = 'none';
-						
-						// Eltávolítjuk az animációt az inaktív kártyákról
 						const fenycsik = card.querySelector('.fenycsik');
 						if (fenycsik) {
 							fenycsik.classList.remove('animate');
@@ -5826,10 +5797,8 @@ border-left: 2px solid #0F3460;
 				});
 			}
 
-			// Kezdeti beállítás
 			showTanar(0);
 
-			// Minden tanár div-ben lévő nyilak kezelése
 			function setupArrows() {
 				tanarCards.forEach((card) => {
 					const arrowLeft = card.querySelector('.arrowLeft');
@@ -5855,17 +5824,13 @@ border-left: 2px solid #0F3460;
 
 			setupArrows();
 			
-			
-			
 			const bttnSideMenu = document.getElementById('bttn_sideMenu');
 			const sideMenu = document.getElementById('sideMenu');
-			let menuState = 'hamburger'; // hamburger, minus, x
+			let menuState = 'hamburger';
 
 			if (bttnSideMenu && sideMenu) {
-				// Hamburger menu toggle
 				bttnSideMenu.addEventListener('click', function() {
 					if (menuState === 'hamburger') {
-						// First click: hamburger -> minus -> x
 						bttnSideMenu.classList.remove('state-x');
 						bttnSideMenu.classList.add('state-minus');
 						menuState = 'minus';
@@ -5878,7 +5843,6 @@ border-left: 2px solid #0F3460;
 						}, 300);
 						
 					} else if (menuState === 'x') {
-						// Second click: x -> minus -> hamburger
 						bttnSideMenu.classList.remove('state-x');
 						bttnSideMenu.classList.add('state-minus');
 						menuState = 'minus';
@@ -5891,7 +5855,6 @@ border-left: 2px solid #0F3460;
 					}
 				});
 				
-				// SideMenu pontok scroll funkcionalitása
 				const targets = ['rolunk_hatter', 'edication_hatter', 'rovidfilmek_hatter', 'workshops_hatter', 'tMate_hatter', 'kapcsolatHatter'];
 				const sideMenupontok = document.querySelectorAll('.sideMenupont');
 				const menuHeight = document.getElementById('fomenu').offsetHeight;
@@ -5901,13 +5864,11 @@ border-left: 2px solid #0F3460;
 						sideMenupont.addEventListener('click', () => {
 							const target = document.getElementById(targets[i]);
 							if (target) {
-								// Scroll a megfelelő szekcióhoz
 								window.scrollTo({
 									top: target.getBoundingClientRect().top + window.pageYOffset - menuHeight,
 									behavior: 'smooth'
 								});
 								
-								// Bezárjuk a sideMenu-t (X -> minus -> hamburger)
 								if (menuState === 'x') {
 									bttnSideMenu.classList.remove('state-x');
 									bttnSideMenu.classList.add('state-minus');
@@ -5924,8 +5885,6 @@ border-left: 2px solid #0F3460;
 					});
 				}
 			}
-			
-			
 			
 			var uzenetirasForm = document.getElementById('uzenetirasForm');
 			if (uzenetirasForm) {
@@ -5944,7 +5903,7 @@ border-left: 2px solid #0F3460;
 				if (honeypot && honeypot.checked) return;
 
 				btn.disabled = true;
-				msgEl.textContent = 'Küldés folyamatban…';
+				msgEl.textContent = 'Sending...';
 
 				try {
 					var payload = Object.fromEntries(new FormData(form));
@@ -5960,10 +5919,10 @@ border-left: 2px solid #0F3460;
 
 					if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
 						var cooldown = 60;
-						msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+						msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 						var timer = setInterval(function() {
 							cooldown--;
-							msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+							msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 							if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
 						}, 1000);
 						return;
@@ -5974,13 +5933,13 @@ border-left: 2px solid #0F3460;
 						throw new Error(errMsg);
 					}
 
-					msgEl.textContent = 'Üzenet elküldve! Hamarosan jelentkezünk.';
+					msgEl.textContent = 'Message sent successfully! We will get back to you soon.';
 					form.reset();
 				} catch (err) {
 					console.error(err);
-					msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
+					msgEl.textContent = 'Error: ' + (err && err.message ? err.message : 'Unknown error');
 				} finally {
-					if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) {
+					if (!/Please try again in \d+ seconds\./.test(msgEl.textContent)) {
 						btn.disabled = false;
 					}
 				}
@@ -6003,7 +5962,7 @@ border-left: 2px solid #0F3460;
 				if (honeypot && honeypot.checked) return;
 
 				btn.disabled = true;
-				msgEl.textContent = 'Küldés folyamatban…';
+				msgEl.textContent = 'Sending...';
 
 				try {
 					var payload = Object.fromEntries(new FormData(form));
@@ -6019,10 +5978,10 @@ border-left: 2px solid #0F3460;
 
 					if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
 						var cooldown = 60;
-						msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+						msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 						var timer = setInterval(function() {
 							cooldown--;
-							msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+							msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 							if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
 						}, 1000);
 						return;
@@ -6033,13 +5992,13 @@ border-left: 2px solid #0F3460;
 						throw new Error(errMsg);
 					}
 
-					msgEl.textContent = 'Sikeres feliratkozás! Köszönjük.';
+					msgEl.textContent = 'Subscription successful! Thank you.';
 					form.reset();
 				} catch (err) {
 					console.error(err);
-					msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
+					msgEl.textContent = 'Error: ' + (err && err.message ? err.message : 'Unknown error');
 				} finally {
-					if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) {
+					if (!/Please try again in \d+ seconds\./.test(msgEl.textContent)) {
 						btn.disabled = false;
 					}
 				}
@@ -6059,7 +6018,7 @@ border-left: 2px solid #0F3460;
 				var honeypot = form.querySelector('[name="botcheck"]');
 				if (honeypot && honeypot.checked) return;
 				btn.disabled = true;
-				msgEl.textContent = 'Küldés folyamatban…';
+				msgEl.textContent = 'Sending...';
 				try {
 					var payload = Object.fromEntries(new FormData(form));
 					var resp = await fetch('https://api.web3forms.com/submit', {
@@ -6072,10 +6031,10 @@ border-left: 2px solid #0F3460;
 					try { data = JSON.parse(rawText); } catch { data = { raw: rawText }; }
 					if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
 						var cooldown = 60;
-						msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+						msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 						var timer = setInterval(function() {
 							cooldown--;
-							msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+							msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 							if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
 						}, 1000);
 						return;
@@ -6084,13 +6043,13 @@ border-left: 2px solid #0F3460;
 						var errMsg = (data && (data.message || data.raw)) || ('HTTP ' + resp.status + ' ' + resp.statusText);
 						throw new Error(errMsg);
 					}
-					msgEl.textContent = 'Előfoglalás elküldve! Hamarosan értesítünk.';
+					msgEl.textContent = 'Pre-booking sent successfully! We will notify you soon.';
 					form.reset();
 				} catch (err) {
 					console.error(err);
-					msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
+					msgEl.textContent = 'Error: ' + (err && err.message ? err.message : 'Unknown error');
 				} finally {
-					if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) {
+					if (!/Please try again in \d+ seconds\./.test(msgEl.textContent)) {
 						btn.disabled = false;
 					}
 				}
@@ -6110,7 +6069,7 @@ border-left: 2px solid #0F3460;
 				var honeypot = form.querySelector('[name="botcheck"]');
 				if (honeypot && honeypot.checked) return;
 				btn.disabled = true;
-				msgEl.textContent = 'Küldés folyamatban…';
+				msgEl.textContent = 'Sending...';
 				try {
 					var payload = Object.fromEntries(new FormData(form));
 					var resp = await fetch('https://api.web3forms.com/submit', {
@@ -6123,10 +6082,10 @@ border-left: 2px solid #0F3460;
 					try { data = JSON.parse(rawText); } catch { data = { raw: rawText }; }
 					if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
 						var cooldown = 60;
-						msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+						msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 						var timer = setInterval(function() {
 							cooldown--;
-							msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+							msgEl.textContent = 'Too many requests. Please try again in ' + cooldown + ' seconds.';
 							if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
 						}, 1000);
 						return;
@@ -6135,32 +6094,27 @@ border-left: 2px solid #0F3460;
 						var errMsg = (data && (data.message || data.raw)) || ('HTTP ' + resp.status + ' ' + resp.statusText);
 						throw new Error(errMsg);
 					}
-					msgEl.textContent = 'Előfoglalás elküldve! Hamarosan értesítünk.';
+					msgEl.textContent = 'Pre-booking sent successfully! We will notify you soon.';
 					form.reset();
 				} catch (err) {
 					console.error(err);
-					msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
+					msgEl.textContent = 'Error: ' + (err && err.message ? err.message : 'Unknown error');
 				} finally {
-					if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) {
+					if (!/Please try again in \d+ seconds\./.test(msgEl.textContent)) {
 						btn.disabled = false;
 					}
 				}
 			}
-			
-			
-
 		});
 		
-		// Menüpontok scroll funkcionalitása
 		document.addEventListener('DOMContentLoaded', function() {
 			const targets = ['rolunk_hatter', 'edication_hatter', 'rovidfilmek_hatter', 'workshops_hatter', 'tMate_hatter', 'kapcsolatHatter'];
 			const menupontok = document.querySelectorAll('.menupont');
 			const privatApplyButton = document.querySelectorAll('.privatApplyButton');
 			const menuHeight = document.getElementById('fomenu').offsetHeight;
 
-			// Függvény, ami beállítja az aktív menüpontot a jelenlegi scroll pozíció alapján
 			function updateActiveMenuItem() {
-				const scrollPosition = window.scrollY + menuHeight + 50; // 50px offset a pontosabb érzékeléshez
+				const scrollPosition = window.scrollY + menuHeight + 50;
 				
 				let activeIndex = -1;
 				
@@ -6171,14 +6125,12 @@ border-left: 2px solid #0F3460;
 						const targetTop = rect.top + window.scrollY;
 						const targetBottom = targetTop + rect.height;
 						
-						// Ha a scroll pozíció ezen a szekción belül van
 						if (scrollPosition >= targetTop && scrollPosition < targetBottom) {
 							activeIndex = index;
 						}
 					}
 				});
 				
-				// Beállítjuk a menüpontok színét
 				menupontok.forEach((mp, i) => {
 					if (i === activeIndex) {
 						mp.style.color = 'white';
@@ -6188,7 +6140,6 @@ border-left: 2px solid #0F3460;
 				});
 			}
 
-			// Menüpont kattintás eseménykezelő
 			menupontok.forEach((menupont, i) => {
 				menupont.addEventListener('click', () => {
 					const target = document.getElementById(targets[i]);
@@ -6219,7 +6170,6 @@ border-left: 2px solid #0F3460;
 				});
 			});
 			
-			// Scroll eseménykezelő - throttling-gal a teljesítményért
 			let scrollTicking = false;
 			window.addEventListener('scroll', function() {
 				if (!scrollTicking) {
@@ -6231,13 +6181,8 @@ border-left: 2px solid #0F3460;
 				}
 			});
 
-			// Kezdeti állapot beállítása
 			updateActiveMenuItem();
-			
-			
 		});
-		
-
 </script>
 </head>
 <body>
@@ -6252,7 +6197,7 @@ border-left: 2px solid #0F3460;
 			<div class="menupont"> OUR TEACHERS	</div>
 			<div class="menupont"> CONTACT	</div>
 		</div>
-		<a href="index.html" id="nyelvCsere">HUN</a>
+		<a href="CGCOMET_angol.html" id="nyelvCsere">ENG</a>
 		
 		<div id="bttn_sideMenu" class="menupont" >
 			<span class="hamburgerIcon" aria-hidden="true">
@@ -6270,7 +6215,7 @@ border-left: 2px solid #0F3460;
 			<div class="sideMenupont"> WORKSHOPS ›	</div>
 			<div class="sideMenupont"> OUR TEACHERS ›	</div>
 			<div class="sideMenupont"> CONTACT ›	</div>
-			<a href="index.html" class="sideMenupont">HUN</a>
+			<a href="CGCOMET_angol.html" class="sideMenupont">ENG</a>
 	</div>
 	
 	<div id="toltes">
@@ -6284,7 +6229,7 @@ border-left: 2px solid #0F3460;
 		<div id="rolunk" >
 			CGCOMET – Where ideas take shape.
 			<br>
-			<br>The driving force of our creative studio is ambition and innovation. From concept design through 3D printing to contract manufacturing, our expert team transforms ideas into high-quality, tangible results. We are constantly evolving and always pushing the boundaries of creativity.
+			<br>The engine of our creative studio is ambition and innovation. From concept design through 3D printing to contract manufacturing, our expert team transforms ideas into high-quality, tangible results. We continuously evolve and always push the boundaries of creativity.
 			<br>
 			<br>CGCOMET – Your creative partner.
 		</div>
@@ -6293,7 +6238,7 @@ border-left: 2px solid #0F3460;
 	
 	
 	<div id="toltes1" class="toltesek">
-		<div> <img src="logo.webp" alt="COMET Art CGI 3D logo with a futuristic comet emblem" loading="lazy">	</div>
+		<div> <img src="logo.webp" alt="COMET Art CGI 3D logo with futuristic comet emblem" loading="lazy">	</div>
 	</div>
 	
 	<div id="edication_hatter" class="oldal">
@@ -6307,7 +6252,7 @@ border-left: 2px solid #0F3460;
 				<div class="szoveg"> 
 					<span><h1>Our Educational Method</h1></span>
 					
-					<br><span class="hatteresSzoveg">Learning is a journey, and we are here to make it exciting. We offer practical, easy-to-follow training in 3D production, animation, and design. Whether in-school, online, or in-person, we help develop your skills and passion in a professional, supportive environment.</span>
+					<br><span class="hatteresSzoveg">Learning is a journey, and we are here to make it exciting. We offer easy-to-follow, practical education in 3D production, animation, and design. Whether in-school, online, or in-person, we help develop your skills and passion in a professional, supportive environment.</span>
 				</div>
 		</div>
 		<div id="future_edication" >
@@ -6316,10 +6261,10 @@ border-left: 2px solid #0F3460;
 			</div>
 			<p><h1>Education for the Creators of the Future</h1>
 			</p>
-			<p>We offer various educational opportunities for our students across a wide range of creative and technical fields. Whether it is programming, concept art, 3D design, digital painting, web design, or more, you can find specialized courses tailored to you. Classes are held in Hungarian; online learning is available in many areas, while some courses are offered exclusively as live, in-person sessions.
+			<p>We offer various educational opportunities for our students across a wide range of creative and technical fields. Whether it is programming, concept art, 3D design, digital painting, web design, or more, you will find specialized courses tailored to you. Education is conducted in Hungarian; online learning is available in many areas, while certain courses are offered exclusively in live, in-person sessions. 
 			</p>
 			<p><h2>Why choose us?</h2>
-			<br>We provide personalized one-on-one mentoring focused on real skills and industry-relevant knowledge. Our students not only succeed at universities, but many of them have already launched successful careers in the creative industry. Top-performing students can join our professional projects and become members of our team — turning learning into a real future.
+			<br>We provide personalized, one-on-one mentoring focused on real skills and industry-relevant knowledge. Our students not only thrive at universities, but many have already launched successful careers in the creative industry. Top-performing students can join our professional projects and become members of our team—turning learning into a real future.
 			</p>
 		</div>
 	</div>
@@ -6336,7 +6281,7 @@ border-left: 2px solid #0F3460;
 				<img src="rovidfilmekF.webp" alt="" class="kepek" loading="lazy">
 				<span class="haromD_Feliratok"><span style="font-family:'Libre Baskerville'">3D</span> Short <span style="font-family:'sans serif'">f</span>ilms</span>
 				<p>
-					Do you have a story you want to tell? We bring your vision to life with stunning 3D short films! From concept to final rendering, our team handles every step with precision and creativity. Let’s set your ideas in motion and make a lasting impact!
+					Do you have a story to tell? We bring your ideas to life with stunning 3D short films! From concept to final render, our team handles every step with precision and creativity. Let’s set your ideas in motion and create lasting impact!
 				</p>
 				<button id="bttn_3dFilm" class="privatApplyButton">request a quote</button>
 			</div>
@@ -6346,8 +6291,8 @@ border-left: 2px solid #0F3460;
 				<span class="haromD_Feliratok"><span style="font-family:'Libre Baskerville'">3D</span> Printing</span>
 				<p>
 					Make your ideas tangible! 
-					<br>Whether it is a custom gift, a unique decoration, or a small but important object, we help turn your concept into real form. 
-					With 3D printing, we bring your ideas to life — simply, precisely, and tailored to you.
+					<br>Whether it is a unique gift, a special decoration, or a small but important object, we help turn your concept into real form. 
+					With 3D printing, we bring your ideas to life—simply, precisely, and tailored to you.
 				</p>
 		
 				<button id="bttn_3dPrivatNyomtatas" class="privatApplyButton">request a quote</button>
@@ -6370,7 +6315,7 @@ border-left: 2px solid #0F3460;
 			<div class="szoveg"> 
 				<span class="hatteresSzoveg2"><h1>Workshops</h1>	</span>
 				
-				<br><span class="hatteresSzoveg">Would you like to take your creative skills to the next level? Our workshops help you navigate the exciting world of 3D! Whether you are a beginner or want to refine your knowledge, we offer practical sessions that bring out your best. Join us and start creating with confidence!</span>
+				<br><span class="hatteresSzoveg">Would you like to take your creative skills to the next level? Our workshops help you navigate the exciting world of 3D! Whether you are a beginner or want to refine your knowledge, we offer practical sessions that bring out the best in you. Join us and start creating with confidence!</span>
 			</div>
 			
 		</div>
@@ -6382,12 +6327,12 @@ border-left: 2px solid #0F3460;
 			<div class="workshopTetel"> 
 				<img src="workshop2.webp" alt="" class="kepek" loading="lazy">
 				<p>
-					In the 3D printing workshop, our students learn basic 3D modeling techniques, get acquainted with the art of 3D printing and different printer types, and we help them choose which materials are best for different models. At the end of the workshop, we mail the finished printed model to participants.
+					In the 3D printing workshop, our students learn basic 3D modeling techniques, get to know the art of 3D printing and different types of printers, and we help them choose which materials are best for different models. At the end of the workshop, we send the finished printed model to participants by post.
 				</p>
 				<div class="workshopArak">
 					<span class="workshopKedvezmeny">-30%!!</span>
-					<span class="workshopRegiAr">15 600 HUF</span>
-					<span class="workshopUjAr">12 000 HUF</span>
+					<span class="workshopRegiAr">15,600 HUF</span>
+					<span class="workshopUjAr">12,000 HUF</span>
 				</div>
 				<button id="bttn_3dnyomtatas" class="workshopApplyButton">time slots</button>
 			</div>
@@ -6395,12 +6340,12 @@ border-left: 2px solid #0F3460;
 			<div class="workshopTetel"> 
 				<img src="workshop3.webp" alt="" class="kepek" loading="lazy">
 				<p>
-					In our texture painting workshop, we teach the best methods of miniature painting. We help participants choose brushes and teach, with airbrush techniques, how to prime raw figures. You may bring your own model, and our company also provides models, paint, and brushes for attendees. We assist with paint selection and during classes we also cover shading and color theory.
+					In our texture painting workshop, we teach the best methods of miniature painting. We help participants choose brushes, and we teach how to prime raw figures using an airbrush. You can bring your own model, and our company also provides models, paint, and brushes for attendees. We assist with paint selection, and during the sessions we also talk about shading and color theory.
 				</p>
 				<div class="workshopArak">
 					<span class="workshopKedvezmeny">-30%!!</span>
-					<span class="workshopRegiAr">15 600 HUF</span>
-					<span class="workshopUjAr">12 000 HUF</span>
+					<span class="workshopRegiAr">15,600 HUF</span>
+					<span class="workshopUjAr">12,000 HUF</span>
 				</div>
 				<button id="bttn_festes" class="workshopApplyButton">time slots</button>
 			</div>
@@ -6415,9 +6360,9 @@ border-left: 2px solid #0F3460;
 			<p>
 				<span class="fMenete">Booking process</span>
 				<ul>
-					<li> pre-booking (selecting a time slot, entering details)	</li>
-					<li> then we send an email notification once the required number of participants is reached 	</li>
-					<li> after that, you can pay the amount through the received email</li>
+					<li> pre-booking (choose time slot, enter details)	</li>
+					<li> then we send an email notification after the minimum headcount is reached 	</li>
+					<li> then you can pay the amount via the received email</li>
 				</ul>
 			</p>
 
@@ -6429,6 +6374,8 @@ border-left: 2px solid #0F3460;
 				<input type="checkbox" name="botcheck" style="display:none">
 				<select name="idopont" required>
 					<option value="" disabled selected hidden>Choose a time slot</option>
+					<option value="2025.03.07 17:00">2025.03.07 17:00	</option>
+					<option value="2025.03.07 17:00">2025.04.04 17:00	</option>
 				</select>
 				
 				<div class="input-wrapper">
@@ -6443,7 +6390,7 @@ border-left: 2px solid #0F3460;
 				<div class="input-wrapper">
 					<input type="text" id="hD_fog_Adoszam" name="adoszam" class="newsletterEmailInput" placeholder="tax number (companies only)">
 				</div>
-				<button type="submit" id="hD_submit" class="newsletterSubscribeButton">apply</button>
+				<button type="submit" id="hD_submit" class="newsletterSubscribeButton">register</button>
 				<div id="hD_message" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
 			</form>
 			
@@ -6459,9 +6406,9 @@ border-left: 2px solid #0F3460;
 			<p>
 				<span class="fMenete">Booking process</span>
 				<ul>
-					<li> pre-booking (selecting a time slot, entering details)	</li>
-					<li> then we send an email notification once the required number of participants is reached 	</li>
-					<li> after that, you can pay the amount through the received email</li>
+					<li> pre-booking (choose time slot, enter details)	</li>
+					<li> then we send an email notification after the minimum headcount is reached 	</li>
+					<li> then you can pay the amount via the received email</li>
 				</ul>
 			</p>
 
@@ -6473,6 +6420,8 @@ border-left: 2px solid #0F3460;
 				<input type="checkbox" name="botcheck" style="display:none">
 				<select name="idopont" required>
 					<option value="" disabled selected hidden>Choose a time slot</option>
+					<option value="2025.03.07 17:00">2025.03.07 17:00	</option>
+					<option value="2025.03.07 17:00">2025.04.04 17:00	</option>
 				</select>
 				
 				<div class="input-wrapper">
@@ -6487,7 +6436,7 @@ border-left: 2px solid #0F3460;
 				<div class="input-wrapper">
 					<input type="text" id="fest_fog_Adoszam" name="adoszam" class="newsletterEmailInput" placeholder="tax number (companies only)">
 				</div>
-				<button type="submit" id="festo_submit" class="newsletterSubscribeButton">apply</button>
+				<button type="submit" id="festo_submit" class="newsletterSubscribeButton">register</button>
 				<div id="festo_message" style="min-height:20px;font-size:0.95rem;margin-top:10px;"></div>
 			</form>
 			
@@ -6502,14 +6451,14 @@ border-left: 2px solid #0F3460;
 	
 	<div id="tMate_hatter" class="oldal">
 		<div id="tMate" class="fenycsik teacherCard">
-			<div id="tMateImageDiv"> <img src="tMate.webp" alt="Image of our teacher, Máté Tarczali" loading="lazy">	</div>
+			<div id="tMateImageDiv"> <img src="tMate.webp" alt="Image of our teacher Máté Tarczali" loading="lazy">	</div>
 			
 			<div class="tanar_leiras">	
-				<p><h1>Máté Tarczali</h1>
+				<p><h1>Tarczali Máté</h1>
 				</p>
 				<p>
 					Lead 3D Generalist | Director
-					<br>Máté is not only the studio’s lead 3D generalist, but also its director. With years of experience in modeling, animation, lighting, and rendering, he leads both students and the company with professionalism and creativity. His classes provide deep, practical insight into the full 3D production process.
+					<br>Máté is not only the studio’s lead 3D generalist, but also its director. With years of experience in modeling, animation, lighting, and rendering, he leads both students and the company with professionalism and creativity. His classes provide deep, practical insight into the entire 3D production process.
 					
 				</p>
 				<div id="bttn_tMate"class="reszletek tanarButton"> 
@@ -6527,7 +6476,7 @@ border-left: 2px solid #0F3460;
 				</div>
 				
 				<div class="tanarNevFelirat">
-					Generalist – with Máté Tarczali
+					Generalist – with Tarczali Máté
 				</div>
 				
 				<div class="tanarParameterek">
@@ -6536,7 +6485,7 @@ border-left: 2px solid #0F3460;
 							Duration
 						</div>
 						<div class="parameterek_Adat">
-							90 minutes
+							90 minutes 
 						</div>
 					</div>
 					<div class="egy_tanarParameter">
@@ -6571,15 +6520,15 @@ border-left: 2px solid #0F3460;
 			</div>
 			
 			<div id="sNoemi" class="fenycsik tanarok teacherCard">
-				<div id="sNoemiImageDiv"> <img src="noemi.webp" alt="Image of our teacher, Noémi Soós" loading="lazy">	</div>
+				<div id="sNoemiImageDiv"> <img src="noemi.webp" alt="Image of our teacher Noémi Soós" loading="lazy">	</div>
 				
 				<div class="tanar_leiras">	
-					<p><h1>Noémi Soós</h1>
+					<p><h1>Soós Noémi</h1>
 					</p>
 					<p>
 						Graphic Designer | Concept Artist
-						<br>Noémi is a digital artist and instructor who focuses on easy-to-understand digital art fundamentals, even for beginners. She places special emphasis on anatomy, light-shadow relationships, and color theory, while guiding learners through the basics of character design — from facial expressions to body language.
-						Her classes are structured and aimed at building a stable artistic foundation while giving room for individual creativity to flourish.
+						<br>Noémi is a digital artist and teacher who focuses on digital art fundamentals that are easy to understand even for beginners. She places special emphasis on anatomy, light-shadow relationships, and color theory, while guiding students through the basics of character design—from facial expressions to body language.
+						Her classes are structured and designed to build a stable artistic foundation, while giving space for individual creativity to unfold.
 					</p>
 					<div id="bttn_sNoemi"class="reszletek tanarButton"> 
 						more details
@@ -6596,7 +6545,7 @@ border-left: 2px solid #0F3460;
 					</div>
 					
 					<div class="tanarNevFelirat">
-						Generalist – with Noémi Soós
+						Generalist – with Soós Noémi
 					</div>
 					
 					<div class="tanarParameterek">
@@ -6605,7 +6554,7 @@ border-left: 2px solid #0F3460;
 								Duration
 							</div>
 							<div class="parameterek_Adat">
-								90 minutes
+								90 minutes 
 							</div>
 						</div>
 						<div class="egy_tanarParameter">
@@ -6663,7 +6612,7 @@ border-left: 2px solid #0F3460;
 			
 			<div id="uzenetiras" class="lilaHatter">
 				<div id="uzenetirasMezok">
-					<h2 style="text-align:left;"><span >Write a message</span></h2>
+					<h2 style="text-align:left;"><span >Write a Message</span></h2>
 					<form id="uzenetirasForm">
 						<input type="hidden" name="access_key" value="40db931e-5c20-4bda-87b7-00bfea6d8a8d">
 						<input type="hidden" name="subject" value="CGCOMET – Message from website">
@@ -6674,7 +6623,7 @@ border-left: 2px solid #0F3460;
 						</div>
 						<div class="input-wrapper">
 							<label for="emailMessage" class="floating-label">Contact</label>
-							<input type="email" id="emailMessage" name="email" class="newsletterEmailInput" placeholder="email and phone" required>
+							<input type="email" id="emailMessage" name="email" class="newsletterEmailInput" placeholder="e-mail and phone" required>
 						</div>
 						<div class="input-wrapper">
 							<label for="messageText" class="floating-label">Message</label>
@@ -6699,20 +6648,20 @@ border-left: 2px solid #0F3460;
 				<div id="tamogatas" class="lilaHatter">
 					<p>
 						<h2>Why is it worth supporting us?</h2>
-						We work with 3D printing, game development, 3D animations, trailer production, and education. Our goal is
-						to create creative, unique, and high-quality projects while giving young talents opportunities to grow.
+						We work with 3D printing, game development, 3D animations, trailer production, and education. Our goal is 
+						to create creative, unique, and high-quality projects while also giving young talents opportunities to grow.
 					</p>
 					
 					<p>
 						<br>🎲 publishing our own board games
 						<br>🧑‍💻 recruiting and mentoring juniors
-						<br>🖨️ developing 3D printed products and miniatures
+						<br>🖨️ developing 3D-printed products and figures
 						<br>🎮 creating games and visual content
 						<br>🎓 launching educational programs
 					</p>
 					
 					<p>
-						If you feel these ideas are close to your heart and would like to help bring them to life, thank you for supporting our work!
+						If you feel these ideas resonate with you and you would like to help make them happen, thank you for supporting our work!
 					</p>
 					
 					<form>
@@ -6766,4 +6715,3 @@ border-left: 2px solid #0F3460;
 	
 </body>
 </html>
-	
