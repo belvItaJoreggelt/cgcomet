@@ -5928,7 +5928,64 @@
 				});
 			}
 			
+			async function submitUzenetirasForm(form) {
+				var msgEl = document.getElementById('uzenetirasUzenet');
+				var btn = document.getElementById('uzenetirasKuldes');
+				if (!msgEl || !btn) return;
+
+				var honeypot = form.querySelector('[name="botcheck"]');
+				if (honeypot && honeypot.checked) return;
+
+				btn.disabled = true;
+				msgEl.textContent = 'Küldés folyamatban…';
+
+				try {
+					var payload = Object.fromEntries(new FormData(form));
+					var resp = await fetch('https://api.web3forms.com/submit', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+						body: JSON.stringify(payload)
+					});
+
+					var rawText = await resp.text();
+					var data;
+					try { data = JSON.parse(rawText); } catch { data = { raw: rawText }; }
+
+					if (resp.status === 429 || (data && data.message && /rate limited/i.test(data.message))) {
+						var cooldown = 60;
+						msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+						var timer = setInterval(function() {
+							cooldown--;
+							msgEl.textContent = 'Túl sok kérés. Próbálja újra ' + cooldown + ' mp múlva.';
+							if (cooldown <= 0) { clearInterval(timer); msgEl.textContent = ''; btn.disabled = false; }
+						}, 1000);
+						return;
+					}
+
+					if (!resp.ok || (data && data.success === false)) {
+						var errMsg = (data && (data.message || data.raw)) || ('HTTP ' + resp.status + ' ' + resp.statusText);
+						throw new Error(errMsg);
+					}
+
+					msgEl.textContent = 'Üzenet elküldve! Hamarosan jelentkezünk.';
+					form.reset();
+				} catch (err) {
+					console.error(err);
+					msgEl.textContent = 'Hiba: ' + (err && err.message ? err.message : 'Ismeretlen hiba');
+				} finally {
+					if (!/Próbálja újra \d+ mp múlva/.test(msgEl.textContent)) {
+						btn.disabled = false;
+					}
+				}
+			}
 			
+			var newsletterForm = document.getElementById('newsletterForm');
+			if (newsletterForm) {
+				newsletterForm.addEventListener('submit', function(e) {
+					e.preventDefault();
+					submitNewsletterForm(newsletterForm);
+				});
+			}
 
 			async function submitNewsletterForm(form) {
 				var msgEl = document.getElementById('newsletterUzenet');
@@ -6661,41 +6718,7 @@
 				</div>
 				
 				<div id="tamogatasKuldese" class="lilaHatter">
-					<div id="tamogatas_nyil" class="visszanyil">
-						<img src="balraNyil.webp" alt="balra mutató nyíl" loading="lazy">
-					</div>
-					<h2>Köszönjük, hogy támogatod a munkánkat!</h2>
-					<form id="tamogatasForm" class="foglalasForm" onsubmit="event.preventDefault(); return false;">
-						<div class="input-wrapper" id="tamogatasOsszegWrapper">
-							<div class="input-with-spinner">
-								<input type="number" id="tamogatasOsszeg" class="newsletterEmailInput" placeholder="támogatás összege (Ft)" min="500" step="500" required>
-								<div class="spinner-buttons">
-									<button type="button" class="spinner-btn" id="spinner-up">▲</button>
-									<button type="button" class="spinner-btn" id="spinner-down">▼</button>
-								</div>
-							</div>
-						</div>
-						
-						<div class="input-wrapper">
-							<input type="text" id="kartyaSzam" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="1234 5678 9012 3456" maxlength="19" required>
-						</div>
-						
-						<div style="display: flex; gap: 5px;">
-							<div class="input-wrapper">
-								<input type="text" id="lejaratiDatum" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="MM/YY" maxlength="5" required>
-							</div>
-							<div class="input-wrapper">
-								<input type="text" id="cvv" class="newsletterEmailInput" style="width: 100px !important; min-width: 100px;" placeholder="CVC" maxlength="3" required>
-							</div>
-						</div>
-						
-						<div class="input-wrapper">
-							<input type="text" id="kartyaNev" class="newsletterEmailInput" style="width: 300px !important; min-width: 300px;" placeholder="kártyán szereplő név" required>
-						</div>
-						
-						
-						<button type="submit" class="newsletterSubscribeButton" href="https://buy.stripe.com/7sY28t1saaW88tB4axabK00" target="_blank" rel="noopener">adomány elküldése</button>
-					</form>
+					
 				</div>
 		</div>
 			
