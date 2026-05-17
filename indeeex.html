@@ -1738,7 +1738,7 @@
 			.munka-card.munka-active video{
 				pointer-events: auto;
 			}
-			
+
 			.munka-card.munka-left {
 			opacity: 0.55;
 			z-index: 3;
@@ -3112,6 +3112,8 @@
 				position: absolute;
 				left: 50%;
 				bottom: 13%;
+				z-index: 9999;
+				pointer-events: auto;
 			}
 
 			.munka-prev, .munka-next{
@@ -3147,6 +3149,11 @@
 				height: 100%;
 				line-height: 1;
 				
+			}
+			.munka-prev, .munka-next, .munka-dots{
+				position: relative;
+				z-index: 10000;
+				pointer-events: auto;
 			}
 
 			.diak-card .tag {
@@ -7462,7 +7469,7 @@
 
 				<article class="diak-card">
 					<div>
-						<h2>Kecskés Dóri</h2>					
+						<h2>Kecskés Dórii</h2>					
 					</div>
 					<div class="munka-carousel-wrapper">
 
