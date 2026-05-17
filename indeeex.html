@@ -1712,7 +1712,7 @@
 			overflow: hidden;
 			background: black;
 			border: 2px solid rgba(217, 70, 239, 0.45);
-			
+			pointer-events: none;
 
 			opacity: 0;
 
@@ -1735,7 +1735,10 @@
 			z-index: 5;
 			transform: translateX(0) translateY(0) scale(1);
 			}
-
+			.munka-card.munka-active video{
+				pointer-events: auto;
+			}
+			
 			.munka-card.munka-left {
 			opacity: 0.55;
 			z-index: 3;
@@ -1767,7 +1770,7 @@
 			display: flex;
 			align-items: center;
 			gap: 14px;
-			z-index: 20;
+			z-index: 999;
 			pointer-events: auto;
 			}
 
@@ -1791,7 +1794,7 @@
 			text-align: center;
 			}
 
-			.munka-prev, .munka-next, .munka-dot {
+			.munka-prev, .munka-next, .munka-dots {
 				pointer-events: auto;
 			}
 
@@ -2592,7 +2595,7 @@
 				padding: 4% 2%;
 			}
 			.diak-card h2 {
-				font-size: 1.4rem;
+				font-size: 1.1rem;
 				margin-bottom: 28px;
 			}
 
@@ -3072,7 +3075,7 @@
 				padding: 7% 2% 4% 2%;
 			}
 			.diak-card h2 {
-				font-size: 1.4rem;
+				font-size: 1.2rem;
 				margin-bottom: 28px;
 			}
 
@@ -7466,19 +7469,11 @@
 						<div class="munka-carousel">
 
 							<div class="munka-card">
-								<video src="kecskesDori_v1.mp4" controls  muted loop playsinline></video>
-							</div>
-
-							<div class="munka-card">
 								<video src="kecskesDori_v2.mp4" controls muted loop playsinline></video>
 							</div>
 							
 							<div class="munka-card">
 								<video src="kecskesDori_v3.mp4" controls muted loop playsinline></video>
-							</div>
-							
-							<div class="munka-card">
-								<video src="kecskesDori_v4.mp4" controls muted loop playsinline></video>
 							</div>
 							
 							<div class="munka-card">
