@@ -3055,16 +3055,23 @@
 				line-height: 1;
 				padding: 0;
 			}
-			.munka-prev::after{
-				content: '\21E3';
-				font-size: 1.1rem;
-				color: #ff9ae6;
-			}
-			.munka-next::after{
-				content: '\21E7';				
-				font-size: 1.1rem;
-				color: #ff9ae6;
-			}
+			.munka-prev::after,
+.munka-next::after{
+	content: '\21E3'; /* ⇣ */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.1rem;
+	color: #ff9ae6;
+	display: block;
+	line-height: 1;
+}
+
+.munka-prev::after{
+	transform: rotate(0deg);
+}
+
+.munka-next::after{
+	transform: rotate(180deg);
+}
 			.munka-prev::after, .munka-next::after{
 				display: flex;
 				align-items: center;
@@ -7335,7 +7342,7 @@
 	
 	<div id="diakok_hatter" class="oldal">
 		<div class="diakokFelirat">
-			<h1>Diákjaink munkáii</h1>
+			<h1>Diákjaink munkái</h1>
 		</div>
 
 		<section class="diak-carousel-scene">
