@@ -6415,7 +6415,24 @@
 			
 		}
 		
-		
+		@media screen and (max-width: 1023px) {
+			.munka-card.munka-left,
+			.munka-card.munka-right {
+				pointer-events: none; /* ne takarják a gombokat */
+			}
+
+			.munka-controls {
+				z-index: 10000;
+				pointer-events: auto;
+			}
+
+			.munka-prev,
+			.munka-next {
+				pointer-events: auto;
+				touch-action: manipulation;
+				-webkit-tap-highlight-color: transparent;
+			}
+		}
 	</style>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
@@ -7469,7 +7486,7 @@
 
 				<article class="diak-card">
 					<div>
-						<h2>Kecskés Dórii</h2>					
+						<h2>Kecskés Dóri</h2>					
 					</div>
 					<div class="munka-carousel-wrapper">
 
