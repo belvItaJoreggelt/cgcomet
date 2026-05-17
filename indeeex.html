@@ -1878,7 +1878,7 @@
 
 		.diak-step-arrow {
 			position: absolute;
-			bottom: 2%;
+			bottom: 5%;
 			z-index: 25;
 			width: 4%;
 			height: 4.9%;
@@ -7597,7 +7597,7 @@
 	</div>
 	
 <script>
-	const diakCarousel = document.getElementById('diakCarousel');
+const diakCarousel = document.getElementById('diakCarousel');
 const diakCards = [...document.querySelectorAll('.diak-card')];
 
 let diakCurrentIndex = 0;
@@ -7626,34 +7626,45 @@ function updateDiakCarousel() {
   });
 }
 
+function stepDiak(direction) {
+  diakCurrentIndex = normalizeDiakIndex(diakCurrentIndex + direction);
+  updateDiakCarousel();
+}
+
 let diakDragging = false;
 let diakStartX = 0;
 let diakDragOffset = 0;
 const diakSwipeLimit = 70;
 
-diakCarousel.addEventListener('pointerdown', (event) => {
-  if (event.target.closest('.munka-controls')) return;
-  if (event.target.closest('.munka-card')) return;
-  diakDragging = true;
-  diakStartX = event.clientX;
-  diakDragOffset = 0;
-  diakCarousel.style.cursor = 'grabbing';
-  diakCarousel.setPointerCapture(event.pointerId);
-});
+if (diakCarousel) {
+  diakCarousel.addEventListener('pointerdown', (event) => {
+    if (event.target.closest('.munka-controls')) return;
+    if (event.target.closest('.munka-card')) return;
+    if (event.target.closest('.diak-step-arrow')) return;
 
-diakCarousel.addEventListener('pointermove', (event) => {
-  if (!diakDragging) return;
-  diakDragOffset = event.clientX - diakStartX;
-});
+    diakDragging = true;
+    diakStartX = event.clientX;
+    diakDragOffset = 0;
+    diakCarousel.style.cursor = 'grabbing';
+    diakCarousel.setPointerCapture(event.pointerId);
+  });
 
-diakCarousel.addEventListener('pointerup', endDiakDrag);
-diakCarousel.addEventListener('pointercancel', endDiakDrag);
+  diakCarousel.addEventListener('pointermove', (event) => {
+    if (!diakDragging) return;
+    diakDragOffset = event.clientX - diakStartX;
+  });
+
+  diakCarousel.addEventListener('pointerup', endDiakDrag);
+  diakCarousel.addEventListener('pointercancel', endDiakDrag);
+}
 
 function endDiakDrag() {
   if (!diakDragging) return;
 
   diakDragging = false;
-  diakCarousel.style.cursor = 'grab';
+  if (diakCarousel) {
+    diakCarousel.style.cursor = 'grab';
+  }
 
   if (diakDragOffset > diakSwipeLimit) {
     diakCurrentIndex = normalizeDiakIndex(diakCurrentIndex - 1);
@@ -7666,6 +7677,29 @@ function endDiakDrag() {
 }
 
 updateDiakCarousel();
+
+const diakStepPrev = document.querySelector('.diak-step-prev');
+const diakStepNext = document.querySelector('.diak-step-next');
+
+if (diakStepPrev) {
+  diakStepPrev.addEventListener('click', (event) => {
+    event.stopPropagation();
+    stepDiak(-1);
+  });
+  diakStepPrev.addEventListener('pointerdown', (event) => {
+    event.stopPropagation();
+  });
+}
+
+if (diakStepNext) {
+  diakStepNext.addEventListener('click', (event) => {
+    event.stopPropagation();
+    stepDiak(1);
+  });
+  diakStepNext.addEventListener('pointerdown', (event) => {
+    event.stopPropagation();
+  });
+}
 
 const diakokHatter = document.getElementById('diakok_hatter');
 const diakSwipeHint = document.getElementById('diakSwipeHint');
@@ -7711,30 +7745,28 @@ if (diakokHatter && diakSwipeHint) {
   diakHintObserver.observe(diakokHatter);
 }
 
-	function setupMunkaCarousels() {
-
+function setupMunkaCarousels() {
   document.querySelectorAll('.munka-carousel-wrapper').forEach((wrapper) => {
-
-    const carousel = wrapper.querySelector('.munka-carousel');
     const items = [...wrapper.querySelectorAll('.munka-card')];
-
     const card = wrapper.closest('.diak-card');
 
-	const prevBtn = card.querySelector('.munka-prev');
-	const nextBtn = card.querySelector('.munka-next');
-	const dotsContainer = card.querySelector('.munka-dots');
+    if (!card || items.length === 0) return;
 
-	const controls = card.querySelector('.munka-controls');
+    const prevBtn = card.querySelector('.munka-prev');
+    const nextBtn = card.querySelector('.munka-next');
+    const dotsContainer = card.querySelector('.munka-dots');
+    const controls = card.querySelector('.munka-controls');
 
-	if (controls) {
-	controls.addEventListener('pointerdown', (event) => {
-		event.stopPropagation();
-	});
+    if (!prevBtn || !nextBtn || !dotsContainer) return;
 
-	controls.addEventListener('click', (event) => {
-		event.stopPropagation();
-	});
-	}
+    if (controls) {
+      controls.addEventListener('pointerdown', (event) => {
+        event.stopPropagation();
+      });
+      controls.addEventListener('click', (event) => {
+        event.stopPropagation();
+      });
+    }
 
     let currentIndex = 0;
 
@@ -7743,7 +7775,6 @@ if (diakokHatter && diakSwipeHint) {
     }
 
     function update() {
-
       items.forEach(item => {
         item.classList.remove(
           'munka-active',
@@ -7752,21 +7783,6 @@ if (diakokHatter && diakSwipeHint) {
           'munka-hidden'
         );
       });
-	  items.forEach((item) => {
-		item.addEventListener('click', (event) => {
-			event.stopPropagation();
-
-			if (item.classList.contains('munka-left')) {
-			currentIndex = normalize(currentIndex - 1);
-			update();
-			}
-
-			if (item.classList.contains('munka-right')) {
-			currentIndex = normalize(currentIndex + 1);
-			update();
-			}
-		});
-		});
 
       const active = normalize(currentIndex);
       const left = normalize(currentIndex - 1);
@@ -7790,25 +7806,41 @@ if (diakokHatter && diakSwipeHint) {
       });
     }
 
+    items.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        if (item.classList.contains('munka-left')) {
+          currentIndex = normalize(currentIndex - 1);
+          update();
+        }
+
+        if (item.classList.contains('munka-right')) {
+          currentIndex = normalize(currentIndex + 1);
+          update();
+        }
+      });
+    });
+
     items.forEach((_, index) => {
-      const dot = document.createElement('div');
-
+      const dot = document.createElement('motion');
       dot.className = 'munka-dot';
-
-      dot.addEventListener('click', () => {
+      dot.addEventListener('click', (event) => {
+        event.stopPropagation();
         currentIndex = index;
         update();
       });
-
       dotsContainer.appendChild(dot);
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
       currentIndex = normalize(currentIndex - 1);
       update();
     });
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
       currentIndex = normalize(currentIndex + 1);
       update();
     });
@@ -7819,19 +7851,18 @@ if (diakokHatter && diakSwipeHint) {
 
 setupMunkaCarousels();
 
-	diakCards.forEach((card, index) => {
+diakCards.forEach((card) => {
   card.addEventListener('click', (event) => {
     if (event.target.closest('.munka-controls')) return;
+    if (event.target.closest('.diak-step-arrow')) return;
     if (Math.abs(diakDragOffset) > 10) return;
 
     if (card.classList.contains('is-left')) {
-      diakCurrentIndex = normalizeDiakIndex(diakCurrentIndex - 1);
-      updateDiakCarousel();
+      stepDiak(-1);
     }
 
     if (card.classList.contains('is-right')) {
-      diakCurrentIndex = normalizeDiakIndex(diakCurrentIndex + 1);
-      updateDiakCarousel();
+      stepDiak(1);
     }
   });
 });
