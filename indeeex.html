@@ -1762,7 +1762,7 @@
 			.munka-controls {
 			position: absolute;
 			left: 50%;
-			bottom: -8px;
+			bottom: 5%;
 			transform: translateX(-50%);
 			display: flex;
 			align-items: center;
@@ -2539,6 +2539,79 @@
 				height: 120px;
 			}
 			
+			.diak-card {
+				width: 69%;
+				height: 95%;
+				padding: 4% 2%;
+			}
+			.diak-card h2 {
+				font-size: 1.4rem;
+				margin-bottom: 28px;
+			}
+
+			.diak-card .tag {
+				font-size: 0.9rem;
+			}
+
+			.diak-card.is-left {
+				transform: translateX(-50%) translateX(-220px) translateZ(-220px) rotateY(-57deg) scale(0.88);
+			}
+
+			.diak-card.is-right {
+				transform: translateX(-50%) translateX(220px) translateZ(-220px) rotateY(57deg) scale(0.88);
+			}
+
+			.munka-carousel-wrapper {
+				width: 85%;
+				height: 55%;
+			}
+
+			.munka-carousel {
+				width: 100%;
+				height: calc(100% - 58px);
+			}
+
+			.munka-card.munka-left {
+				transform: translateX(0) translateY(30%) scale(0.75);
+			}
+
+			.munka-card.munka-right {
+				transform: translateX(0) translateY(-30%) scale(0.75);
+			}
+			.munka-controls {
+				position: absolute;
+				left: 50%;
+				bottom: 13%;
+			}
+
+			.munka-prev, .munka-next{
+				font-size: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				line-height: 1;
+				padding: 0;
+			}
+			.munka-prev::after{
+				content: '⇩';
+				font-size: 1.1rem;
+				color: #ff9ae6;
+			}
+			.munka-next::after{
+				content: '⇧';				
+				font-size: 1.1rem;
+				color: #ff9ae6;
+			}
+			.munka-prev::after, .munka-next::after{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				line-height: 1;
+				
+			}
+
 			#kapcsolat_szurke{
 				width: 100%;
 			}
@@ -2962,16 +3035,16 @@
 			}
 
 			.munka-card.munka-left {
-				transform: translateX(0) translateY(40%) scale(0.75);
+				transform: translateX(0) translateY(30%) scale(0.75);
 			}
 
 			.munka-card.munka-right {
-				transform: translateX(0) translateY(-40%) scale(0.75);
+				transform: translateX(0) translateY(-30%) scale(0.75);
 			}
 			.munka-controls {
 				position: absolute;
 				left: 50%;
-				bottom: 0;
+				bottom: 13%;
 			}
 
 			.munka-prev, .munka-next{
@@ -3404,16 +3477,16 @@
 			}
 
 			.munka-card.munka-left {
-				transform: translateX(0) translateY(40%) scale(0.75);
+				transform: translateX(0) translateY(30%) scale(0.75);
 			}
 
 			.munka-card.munka-right {
-				transform: translateX(0) translateY(-40%) scale(0.75);
+				transform: translateX(0) translateY(-30%) scale(0.75);
 			}
 			.munka-controls {
 				position: absolute;
 				left: 50%;
-				bottom: 0;
+				bottom: 13%;
 			}
 
 			.munka-prev, .munka-next{
@@ -3845,7 +3918,6 @@
 			.munka-controls {
 				position: absolute;
 				left: 50%;
-				bottom: 0;
 			}
 
 			.munka-prev, .munka-next{
@@ -6214,6 +6286,7 @@
 				left: 10px;
 				width: 90px;
 			}
+			
 		}
 		
 		
@@ -7288,15 +7361,17 @@
 							</div>
 						</div>
 
-						<div class="munka-controls">
+						
+						</div>
+
+					<div class="munka-controls">
 							<button class="munka-prev" type="button">‹</button>
 
 							<div class="munka-dots"></div>
 
 							<button class="munka-next" type="button">›</button>
-						</div>
+					</div>
 
-						</div>
 					<span class="tag">@kisstamas</span>
 				</article>
 
@@ -7320,13 +7395,15 @@
 							</div>
 						</div>
 
-						<div class="munka-controls">
-							<button class="munka-prev" type="button">‹</button>
-							<div class="munka-dots"></div>
-							<button class="munka-next" type="button">›</button>
-						</div>
 					</div>
 					<span class="tag">@nemethtimea</span>
+					<div class="munka-controls">
+							<button class="munka-prev" type="button">‹</button>
+
+							<div class="munka-dots"></div>
+
+							<button class="munka-next" type="button">›</button>
+					</div>
 				</article>
 
 				<article class="diak-card">
@@ -7349,13 +7426,15 @@
 							</div>
 						</div>
 
-						<div class="munka-controls">
-							<button class="munka-prev" type="button">‹</button>
-							<div class="munka-dots"></div>
-							<button class="munka-next" type="button">›</button>
-						</div>
 					</div>
 					<span class="tag">@szaboanna</span>
+					<div class="munka-controls">
+							<button class="munka-prev" type="button">‹</button>
+
+							<div class="munka-dots"></div>
+
+							<button class="munka-next" type="button">›</button>
+					</div>
 				</article>
 
 			</div>
@@ -7585,11 +7664,13 @@ if (diakokHatter && diakSwipeHint) {
     const carousel = wrapper.querySelector('.munka-carousel');
     const items = [...wrapper.querySelectorAll('.munka-card')];
 
-    const prevBtn = wrapper.querySelector('.munka-prev');
-    const nextBtn = wrapper.querySelector('.munka-next');
-    const dotsContainer = wrapper.querySelector('.munka-dots');
+    const card = wrapper.closest('.diak-card');
 
-	const controls = wrapper.querySelector('.munka-controls');
+	const prevBtn = card.querySelector('.munka-prev');
+	const nextBtn = card.querySelector('.munka-next');
+	const dotsContainer = card.querySelector('.munka-dots');
+
+	const controls = card.querySelector('.munka-controls');
 
 	if (controls) {
 	controls.addEventListener('pointerdown', (event) => {
