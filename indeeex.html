@@ -1877,49 +1877,49 @@
 		}
 
 		.diak-step-arrow {
-	position: absolute;
-	bottom: 2%;
-	z-index: 25;
-	width: 28px;
-	height: 30px;
-	padding: 0;
-	border: none;
-	cursor: pointer;
-	background: linear-gradient(
-		135deg,
-		#c45adf 0%,
-		#e06eea 20%,
-		#d95fdd 65%,
-		#ad3fc4 100%
-	);
-	filter: drop-shadow(0 4px 8px rgba(196, 90, 223, 0.5));
-	transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
+			position: absolute;
+			bottom: 2%;
+			z-index: 25;
+			width: 4%;
+			height: 4.9%;
+			padding: 0;
+			border: none;
+			cursor: pointer;
+			background: linear-gradient(
+				135deg,
+				#c45adf 0%,
+				#e06eea 20%,
+				#d95fdd 65%,
+				#ad3fc4 100%
+			);
+			filter: drop-shadow(0 4px 8px rgba(196, 90, 223, 0.5));
+			transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		}
 
-.diak-step-prev {
-	left: 3%;
-	clip-path: polygon(0 50%, 100% 0, 100% 100%);
-}
+		.diak-step-prev {
+			left: 3%;
+			clip-path: polygon(0 50%, 100% 0, 100% 100%);
+		}
 
-.diak-step-next {
-	right: 3%;
-	clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
+		.diak-step-next {
+			right: 3%;
+			clip-path: polygon(0 0, 100% 50%, 0 100%);
+		}
 
-.diak-step-arrow:hover {
-	filter: drop-shadow(0 0 20px rgba(196, 90, 223, 0.8))
-		drop-shadow(0 0 40px rgba(212, 165, 255, 0.6))
-		brightness(1.3);
-	transform: scale(1.1);
-}
+		.diak-step-arrow:hover {
+			filter: drop-shadow(0 0 20px rgba(196, 90, 223, 0.8))
+				drop-shadow(0 0 40px rgba(212, 165, 255, 0.6))
+				brightness(1.3);
+			transform: scale(1.1);
+		}
 
-.diak-step-prev:hover {
-	transform: scale(1.1);
-}
+		.diak-step-prev:hover {
+			transform: scale(1.1);
+		}
 
-.diak-step-next:hover {
-	transform: scale(1.1);
-}
+		.diak-step-next:hover {
+			transform: scale(1.1);
+		}
 
 		#uzenetiras{
 			height: 450px;
@@ -3109,11 +3109,12 @@
 			}
 
 			.munka-prev::after{
-				transform: translateY(1px);
+				transform: translateY(2px);
 			}
 
 			.munka-next::after{
 				transform: rotate(180deg);
+				transform: translateY(-2px);
 			}
 			.munka-prev::after, .munka-next::after{
 				display: flex;
@@ -7385,7 +7386,7 @@
 	
 	<div id="diakok_hatter" class="oldal">
 		<div class="diakokFelirat">
-			<h1>Diákjaink munkái</h1>
+			<h1>Diákjaink munkáii</h1>
 		</div>
 
 		<section class="diak-carousel-scene">
