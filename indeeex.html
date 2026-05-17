@@ -7512,16 +7512,15 @@
 
 						
 						</div>
-
+					<span class="tag">@dorikecskes</span>
+					
 					<div class="munka-controls">
 							<button class="munka-prev" type="button">‹</button>
 
 							<div class="munka-dots"></div>
 
 							<button class="munka-next" type="button">›</button>
-					</div>
-
-					<span class="tag">@dorikecskes</span>
+					</div>					
 				</article>
 
 				<article class="diak-card">
@@ -7869,11 +7868,10 @@ function setupMunkaCarousels() {
     if (!prevBtn || !nextBtn || !dotsContainer) return;
 
     if (controls) {
-      controls.addEventListener('pointerdown', (event) => {
-        event.stopPropagation();
-      });
-      controls.addEventListener('click', (event) => {
-        event.stopPropagation();
+      ['pointerdown', 'pointerup', 'click', 'touchstart'].forEach((type) => {
+        controls.addEventListener(type, (event) => {
+          event.stopPropagation();
+        });
       });
     }
 
@@ -7884,7 +7882,7 @@ function setupMunkaCarousels() {
     }
 
     function update() {
-      items.forEach(item => {
+      items.forEach((item) => {
         item.classList.remove(
           'munka-active',
           'munka-left',
@@ -7913,35 +7911,35 @@ function setupMunkaCarousels() {
       dotsContainer.textContent = `${currentIndex + 1}/${items.length}`;
     }
 
+    function step(delta) {
+      currentIndex = normalize(currentIndex + delta);
+      update();
+    }
+
+    function bindNav(btn, delta) {
+      const go = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        step(delta);
+      };
+
+      btn.addEventListener('click', go);
+    }
+
     items.forEach((item) => {
       item.addEventListener('click', (event) => {
         event.stopPropagation();
 
         if (item.classList.contains('munka-left')) {
-          currentIndex = normalize(currentIndex - 1);
-          update();
-        }
-
-        if (item.classList.contains('munka-right')) {
-          currentIndex = normalize(currentIndex + 1);
-          update();
+          step(-1);
+        } else if (item.classList.contains('munka-right')) {
+          step(1);
         }
       });
     });
 
-  
-
-    prevBtn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      currentIndex = normalize(currentIndex - 1);
-      update();
-    });
-
-    nextBtn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      currentIndex = normalize(currentIndex + 1);
-      update();
-    });
+    bindNav(prevBtn, -1);
+    bindNav(nextBtn, 1);
 
     update();
   });
@@ -7952,6 +7950,8 @@ setupMunkaCarousels();
 diakCards.forEach((card) => {
   card.addEventListener('click', (event) => {
     if (event.target.closest('.munka-controls')) return;
+	if (event.target.closest('.munka-prev, .munka-next')) return;
+	if (event.target.closest('.munka-card')) return;
     if (event.target.closest('.diak-step-arrow')) return;
     if (Math.abs(diakDragOffset) > 10) return;
 
