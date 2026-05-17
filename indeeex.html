@@ -1784,8 +1784,11 @@
 			}
 
 			.munka-dots {
-			display: flex;
-			gap: 7px;
+			color: #ff9ae6;
+			font-size: 1rem;
+			font-weight: bold;
+			min-width: 45px;
+			text-align: center;
 			}
 
 			.munka-prev, .munka-next, .munka-dot {
@@ -7899,9 +7902,7 @@ function setupMunkaCarousels() {
         }
       });
 
-      [...dotsContainer.children].forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
+      dotsContainer.textContent = `${currentIndex + 1}/${items.length}`;
     }
 
     items.forEach((item) => {
@@ -7920,16 +7921,7 @@ function setupMunkaCarousels() {
       });
     });
 
-    items.forEach((_, index) => {
-      const dot = document.createElement('motion');
-      dot.className = 'munka-dot';
-      dot.addEventListener('click', (event) => {
-        event.stopPropagation();
-        currentIndex = index;
-        update();
-      });
-      dotsContainer.appendChild(dot);
-    });
+  
 
     prevBtn.addEventListener('click', (event) => {
       event.stopPropagation();
