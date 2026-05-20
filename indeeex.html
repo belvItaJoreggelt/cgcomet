@@ -6486,6 +6486,28 @@
 				-webkit-tap-highlight-color: transparent;
 			}
 		}
+		@media screen and (max-width: 1023px) {
+  .diak-card.is-active {
+    pointer-events: auto;
+    touch-action: auto;
+  }
+
+  .diak-card.is-active .munka-carousel-wrapper,
+  .diak-card.is-active .munka-carousel,
+  .diak-card.is-active .munka-card,
+  .diak-card.is-active .munka-card video,
+  .diak-card.is-active .munka-controls,
+  .diak-card.is-active .munka-prev,
+  .diak-card.is-active .munka-next {
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  .diak-card.is-active .munka-card.munka-left,
+  .diak-card.is-active .munka-card.munka-right {
+    pointer-events: none;
+  }
+}
 	</style>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
@@ -7531,7 +7553,7 @@
 	
 	<div id="diakok_hatter" class="oldal">
 		<div class="diakokFelirat">
-			<h1>Diákjaink munkái</h1>
+			<h1>Diákjaink munkáii</h1>
 		</div>
 
 		<section class="diak-carousel-scene">
@@ -7799,6 +7821,7 @@ const diakSwipeLimit = 70;
 
 if (diakCarousel) {
   diakCarousel.addEventListener('pointerdown', (event) => {
+	if (event.target.closest('.diak-card.is-active')) return;
     if (event.target.closest('.munka-controls')) return;
     if (event.target.closest('.munka-card')) return;
     if (event.target.closest('.diak-step-arrow')) return;
@@ -7969,32 +7992,15 @@ function setupMunkaCarousels() {
       update();
     }
 
-    function bindNav(btn, delta) {
-  let touched = false;
-
+	function bindNav(btn, delta) {
   const go = (event) => {
     event.preventDefault();
     event.stopPropagation();
     step(delta);
   };
 
-  btn.addEventListener('pointerdown', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-  });
-
-  btn.addEventListener('touchstart', (event) => {
-    touched = true;
-    go(event);
-  }, { passive: false });
-
-  btn.addEventListener('click', (event) => {
-    if (touched) {
-      touched = false;
-      return;
-    }
-    go(event);
-  });
+  btn.addEventListener('pointerup', go);
+  btn.addEventListener('click', go);
 }
 
     items.forEach((item) => {
