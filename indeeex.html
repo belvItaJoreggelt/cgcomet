@@ -6469,43 +6469,41 @@
 		}
 		
 		@media screen and (max-width: 1023px) {
-			.munka-card.munka-left,
-			.munka-card.munka-right {
-				pointer-events: none; /* ne takarják a gombokat */
-			}
-
-			.munka-controls {
-				z-index: 10000;
-				pointer-events: auto;
-			}
-
-			.munka-prev,
-			.munka-next {
-				pointer-events: auto;
-				touch-action: manipulation;
-				-webkit-tap-highlight-color: transparent;
-			}
-		}
-		@media screen and (max-width: 1023px) {
-  .diak-card.is-active {
-    pointer-events: auto;
-    touch-action: auto;
+  .diak-carousel-scene {
+    perspective: none;
   }
-
-  .diak-card.is-active .munka-carousel-wrapper,
-  .diak-card.is-active .munka-carousel,
-  .diak-card.is-active .munka-card,
-  .diak-card.is-active .munka-card video,
-  .diak-card.is-active .munka-controls,
-  .diak-card.is-active .munka-prev,
-  .diak-card.is-active .munka-next {
+  .diak-carousel {
+    transform-style: flat;
+  }
+  .diak-card,
+  .diak-card.is-active,
+  .diak-card.is-left,
+  .diak-card.is-right {
+    transform: translateX(-50%) !important;
+    backface-visibility: visible;
+  }
+  /* Carousel legyen a nyilak FÖLÖTT */
+  .diak-carousel-scene {
+    position: relative;
+    z-index: 30;
+  }
+  .diak-step-arrow {
+    z-index: 40; /* csak a saját gomb területe kapjon érintést */
+  }
+  .munka-card.munka-hidden {
+    pointer-events: none !important;
+  }
+  .munka-card.munka-active,
+  .munka-card.munka-active video {
     pointer-events: auto;
     touch-action: manipulation;
   }
-
-  .diak-card.is-active .munka-card.munka-left,
-  .diak-card.is-active .munka-card.munka-right {
-    pointer-events: none;
+  .munka-prev,
+  .munka-next {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-width: 44px;
+    min-height: 44px; /* iOS ajánlott érintési cél */
   }
 }
 	</style>
@@ -7561,7 +7559,7 @@
 
 				<article class="diak-card">
 					<div>
-						<h2>Kecskés Dórii</h2>					
+						<h2>Kecskés Dóriii</h2>					
 					</div>
 					<div class="munka-carousel-wrapper">
 
@@ -7994,12 +7992,11 @@ function setupMunkaCarousels() {
 
 	function bindNav(btn, delta) {
   const go = (event) => {
-    event.preventDefault();
     event.stopPropagation();
     step(delta);
   };
 
-  btn.addEventListener('pointerup', go);
+  btn.addEventListener('click', go, { passive: false });
 }
 
     items.forEach((item) => {
