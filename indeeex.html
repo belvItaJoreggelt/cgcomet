@@ -6469,41 +6469,109 @@
 		}
 		
 		@media screen and (max-width: 1023px) {
+  /* --- Diák carousel: lapos 3D, oldalsó kártyák kilógnak, érintés működik --- */
   .diak-carousel-scene {
     perspective: none;
-  }
-  .diak-carousel {
-    transform-style: flat;
-  }
-  .diak-card,
-  .diak-card.is-active,
-  .diak-card.is-left,
-  .diak-card.is-right {
-    transform: translateX(-50%) !important;
-    backface-visibility: visible;
-  }
-  /* Carousel legyen a nyilak FÖLÖTT */
-  .diak-carousel-scene {
+    overflow: visible;
     position: relative;
     z-index: 30;
   }
-  .diak-step-arrow {
-    z-index: 40; /* csak a saját gomb területe kapjon érintést */
+
+  .diak-carousel {
+    transform-style: flat;
+    overflow: visible;
   }
+
+  .diak-card {
+    backface-visibility: visible;
+    transition:
+      transform 650ms cubic-bezier(.2,.8,.2,1),
+      opacity 650ms ease,
+      filter 650ms ease;
+  }
+
+  .diak-card.is-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-50%) scale(0.88) !important;
+  }
+
+  .diak-card.is-active {
+    transform: translateX(-50%) scale(1) !important;
+    opacity: 1 !important;
+    z-index: 5;
+    filter: brightness(1.08);
+    pointer-events: auto;
+    touch-action: pan-y;
+  }
+
+  .diak-card.is-left {
+    transform: translateX(-50%) translateX(min(-38vw, -240px)) scale(0.9) !important;
+    opacity: 0.72 !important;
+    z-index: 3;
+    filter: brightness(0.72);
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .diak-card.is-right {
+    transform: translateX(-50%) translateX(max(38vw, 240px)) scale(0.9) !important;
+    opacity: 0.72 !important;
+    z-index: 3;
+    filter: brightness(0.72);
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Step nyilak a carousel fölött, de külön kattinthatók */
+  .diak-step-arrow {
+    z-index: 40;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* --- Munka carousel + videó + gombok --- */
   .munka-card.munka-hidden {
+    opacity: 0 !important;
     pointer-events: none !important;
   }
+
   .munka-card.munka-active,
   .munka-card.munka-active video {
     pointer-events: auto;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
+
+  /* Mobilon a munka oldalsó előnézet ne takarja a vezérlőket */
+  .diak-card.is-active .munka-card.munka-left,
+  .diak-card.is-active .munka-card.munka-right {
+    pointer-events: none;
+  }
+
+  .munka-controls {
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
   .munka-prev,
-  .munka-next {
+  .munka-next,
+  .munka-dots {
+    position: relative;
+    z-index: 10000;
+    pointer-events: auto;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     min-width: 44px;
-    min-height: 44px; /* iOS ajánlott érintési cél */
+    min-height: 44px;
+  }
+
+  /* Régebbi mobil szabály: oldalsó munka kártyák ne fogják az érintést (csak gombok) */
+  .munka-card.munka-left,
+  .munka-card.munka-right {
+    pointer-events: none;
   }
 }
 	</style>
@@ -7559,7 +7627,7 @@
 
 				<article class="diak-card">
 					<div>
-						<h2>Kecskés Dóriii</h2>					
+						<h2>Kecskés Dórii</h2>					
 					</div>
 					<div class="munka-carousel-wrapper">
 
