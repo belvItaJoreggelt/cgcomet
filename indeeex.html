@@ -6469,21 +6469,21 @@
 		}
 		
 		@media screen and (max-width: 1023px) {
-  /* 3D carousel – forgatott oldalsó kártyák, mint desktopon */
+  /* --- Diák carousel: lapos 3D, oldalsó kártyák kilógnak, érintés működik --- */
   .diak-carousel-scene {
-    perspective: 900px;
+    perspective: none;
     overflow: visible;
     position: relative;
     z-index: 30;
   }
 
   .diak-carousel {
-    transform-style: preserve-3d;
+    transform-style: flat;
     overflow: visible;
   }
 
   .diak-card {
-    backface-visibility: hidden;
+    backface-visibility: visible;
     transition:
       transform 650ms cubic-bezier(.2,.8,.2,1),
       opacity 650ms ease,
@@ -6493,10 +6493,11 @@
   .diak-card.is-hidden {
     opacity: 0 !important;
     pointer-events: none !important;
+    transform: translateX(-50%) scale(0.88) !important;
   }
 
   .diak-card.is-active {
-    transform: translateX(-50%) translateZ(90px) rotateY(0deg) scale(1) !important;
+    transform: translateX(-50%) scale(1) !important;
     opacity: 1 !important;
     z-index: 5;
     filter: brightness(1.08);
@@ -6505,7 +6506,7 @@
   }
 
   .diak-card.is-left {
-    transform: translateX(-50%) translateX(min(-40vw, -210px)) translateZ(-160px) rotateY(-52deg) scale(0.88) !important;
+    transform: translateX(-50%) translateX(min(-38vw, -240px)) scale(0.9) !important;
     opacity: 0.72 !important;
     z-index: 3;
     filter: brightness(0.72);
@@ -6514,7 +6515,7 @@
   }
 
   .diak-card.is-right {
-    transform: translateX(-50%) translateX(max(40vw, 210px)) translateZ(-160px) rotateY(52deg) scale(0.88) !important;
+    transform: translateX(-50%) translateX(max(38vw, 240px)) scale(0.9) !important;
     opacity: 0.72 !important;
     z-index: 3;
     filter: brightness(0.72);
@@ -6522,13 +6523,14 @@
     cursor: pointer;
   }
 
+  /* Step nyilak a carousel fölött, de külön kattinthatók */
   .diak-step-arrow {
     z-index: 40;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Munka carousel – gombok KÖZÉPEN maradnak */
+  /* --- Munka carousel + videó + gombok --- */
   .munka-card.munka-hidden {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -6541,24 +6543,17 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* Mobilon a munka oldalsó előnézet ne takarja a vezérlőket */
   .diak-card.is-active .munka-card.munka-left,
   .diak-card.is-active .munka-card.munka-right {
     pointer-events: none;
   }
 
   .munka-controls {
-    position: absolute !important;
-    left: 50% !important;
-    bottom: 13%;
-    transform: translateX(-50%) !important;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+   
     z-index: 9999;
     pointer-events: auto;
     touch-action: manipulation;
-    width: auto;
-    margin: 0;
   }
 
   .munka-prev,
@@ -6573,6 +6568,7 @@
     min-height: 44px;
   }
 
+  /* Régebbi mobil szabály: oldalsó munka kártyák ne fogják az érintést (csak gombok) */
   .munka-card.munka-left,
   .munka-card.munka-right {
     pointer-events: none;
@@ -7631,7 +7627,7 @@
 
 				<article class="diak-card">
 					<div>
-						<h2>Kecskés Dóriii</h2>					
+						<h2>Kecskés Dórii</h2>					
 					</div>
 					<div class="munka-carousel-wrapper">
 
