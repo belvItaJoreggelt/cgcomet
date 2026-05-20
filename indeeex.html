@@ -7970,14 +7970,32 @@ function setupMunkaCarousels() {
     }
 
     function bindNav(btn, delta) {
-      const go = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        step(delta);
-      };
+  let touched = false;
 
-      btn.addEventListener('click', go);
+  const go = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    step(delta);
+  };
+
+  btn.addEventListener('pointerdown', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  });
+
+  btn.addEventListener('touchstart', (event) => {
+    touched = true;
+    go(event);
+  }, { passive: false });
+
+  btn.addEventListener('click', (event) => {
+    if (touched) {
+      touched = false;
+      return;
     }
+    go(event);
+  });
+}
 
     items.forEach((item) => {
       item.addEventListener('click', (event) => {
